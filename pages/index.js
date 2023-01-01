@@ -6,6 +6,7 @@ import ProductCategories from '../components/Pages/Product/ProductCategories'
 import Upcoming from '../components/Pages/Product/Upcoming'
 import Brands from '../components/Pages/Product/Brands'
 import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -16,22 +17,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main role="main" class="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
+      <main role="main" className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
         <article>
           {/* PopularCategories  */}
-          <section class="my-1 mt-5">
-            <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+          <section className="my-1 mt-5">
+            <header className="flex flex-wrap gap-2 justify-between items-center my-1">
               <div>
-                <h2 class=" font-medium leading-tight text-base max-w-full">Popular categories</h2>
-                <p class="text-sm text-gray-700">Popular categories on Price in Kenya</p>
+                <h2 className=" font-medium leading-tight text-base max-w-full">Popular categories</h2>
+                <p className="text-sm text-gray-700">Popular categories on Price in Kenya</p>
               </div>
-              <div class="hidden sm:inline-block">
-                <a href="/page/categories" class="" title="Featured product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+              <div className="hidden sm:inline-block">
+                <Link href="/page/categories" className="" title="Featured product categories"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></Link >
               </div>
             </header>
-            <div class="hidden lg:block">
-              <div class="bg-white border py-8 rounded-md">
-                <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+            <div className="hidden lg:block">
+              <div className="bg-white border py-8 rounded-md">
+                <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
                   <PopularCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
                   <PopularCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
                   <PopularCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
@@ -40,9 +41,9 @@ export default function Home() {
                 </ol>
               </div>
             </div>
-            <div class="lg:hidden">
-              <div class="bg-white border py-8 rounded-md">
-                <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+            <div className="lg:hidden">
+              <div className="bg-white border py-8 rounded-md">
+                <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
                   <PopularCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
                   <PopularCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
                   <PopularCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
@@ -51,15 +52,15 @@ export default function Home() {
                 </ol>
               </div>
             </div>
-            <div class="sm:hidden my-3 flex justify-center">
-              <a href="/page/categories" class="" title="Featured product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+            <div className="sm:hidden my-3 flex justify-center">
+              <Link href="/page/categories" className="" title="Featured product categories"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></Link >
             </div>
           </section>
-          <header class="my-1 mt-5">
-            <h1 class="text-2xl font-medium leading-tight max-w-full">Featured</h1>
-            <p class="text-sm text-gray-700">Latest deals from Price in Kenya</p>
+          <header className="my-1 mt-5">
+            <h1 className="text-2xl font-medium leading-tight max-w-full">Featured</h1>
+            <p className="text-sm text-gray-700">Latest deals from Price in Kenya</p>
           </header>
-          <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
             <Featured img={"https://api.priceinkenya.com/media/125240/conversions/xiaomiredminote11pro4gh-original.webp"} title={"Xiaomi Redmi Note 11 Pro 4G"} quantity={39} model={"KES 33,500"} />
             <Featured img={"https://api.priceinkenya.com/media/128997/conversions/iphone14promaxd-original.webp"} title={"Xiaomi Redmi A1 Plus"} quantity={27} model={"KES 10,999"} />
             <Featured img={"https://api.priceinkenya.com/media/123983/conversions/nokia-x10-6gb128gb-nFlgcppvie-original.webp"} title={"Nokia X10"} quantity={36} model={"KES 21,900"} />
@@ -71,18 +72,18 @@ export default function Home() {
             <Featured img={"https://api.priceinkenya.com/media/123983/conversions/nokia-x10-6gb128gb-nFlgcppvie-original.webp"} title={"Nokia X10"} quantity={36} model={"KES 21,900"} />
             <Featured img={"https://api.priceinkenya.com/media/123986/conversions/nokia-x20-8gb128gb-asf0OEBLnB-original.webp"} title={"Nokia X20"} quantity={47} model={"KES 27,000"} />
           </ul>
-          <div class="space-y-6 mt-6">
+          <div className="space-y-6 mt-6">
             <section>
-              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+              <header className="flex flex-wrap gap-2 justify-between items-center my-1">
                 <div>
-                  <h2 class="text-xl font-medium leading-tight max-w-full">What's new</h2>
-                  <p class="text-sm text-gray-700">Recently in stock products</p>
+                  <h2 className="text-xl font-medium leading-tight max-w-full">What`&lsquo;;`s new</h2>
+                  <p className="text-sm text-gray-700">Recently in stock products</p>
                 </div>
-                <div class="hidden sm:inline-block">
-                  <a href="/page/whats-new" class="" title="What's new"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All new arrivals</span></a>
+                <div className="hidden sm:inline-block">
+                  <Link href="/page/whats-new" className="" title="What's new"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All new arrivals</span></Link >
                 </div>
               </header>
-              <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
                 <StockProducts img={"https://api.priceinkenya.com/media/128643/conversions/iphone14plusa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
                 <StockProducts img={"https://api.priceinkenya.com/media/128613/conversions/iphone14plusa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
                 <StockProducts img={"https://api.priceinkenya.com/media/128592/conversions/iphone14j-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
@@ -94,21 +95,21 @@ export default function Home() {
                 <StockProducts img={"https://api.priceinkenya.com/media/128922/conversions/iphone14proa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
                 <StockProducts img={"https://api.priceinkenya.com/media/128946/conversions/iphone14proa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
               </ul>
-              <div class="sm:hidden my-3 flex justify-center">
-                <a href="/page/whats-new" class="" title="What's new"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All new arrivals</span></a>
+              <div className="sm:hidden my-3 flex justify-center">
+                <Link href="/page/whats-new" className="" title="What's new"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All new arrivals</span></Link >
               </div>
             </section>
             <section>
-              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+              <header className="flex flex-wrap gap-2 justify-between items-center my-1">
                 <div>
-                  <h2 class="text-xl font-medium leading-tight max-w-full">Upcoming</h2>
-                  <p class="text-sm text-gray-700">Products to be available soon</p>
+                  <h2 className="text-xl font-medium leading-tight max-w-full">Upcoming</h2>
+                  <p className="text-sm text-gray-700">Products to be available soon</p>
                 </div>
-                <div class="hidden sm:inline-block">
-                  <a href="/page/upcoming-products" class="" title="Upcoming products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All upcoming</span></a>
+                <div className="hidden sm:inline-block">
+                  <Link href="/page/upcoming-products" className="" title="Upcoming products"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All upcoming</span></Link >
                 </div>
               </header>
-              <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
                 <Upcoming img={"https://api.priceinkenya.com/media/130589/conversions/xiaomi13proj-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
                 <Upcoming img={"https://api.priceinkenya.com/media/130636/conversions/oppofindn2flipc-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
                 <Upcoming img={"https://api.priceinkenya.com/media/130603/conversions/vivoy35a-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
@@ -120,22 +121,22 @@ export default function Home() {
                 <Upcoming img={"https://api.priceinkenya.com/media/130603/conversions/vivoy35a-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
                 <Upcoming img={"https://api.priceinkenya.com/media/130589/conversions/xiaomi13proj-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
               </ul>
-              <div class="sm:hidden my-3 flex justify-center">
-                <a href="/page/upcoming-products" class="" title="Upcoming products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All upcoming</span></a>
+              <div className="sm:hidden my-3 flex justify-center">
+                <Link href="/page/upcoming-products" className="" title="Upcoming products"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All upcoming</span></Link >
               </div>
             </section>
-             <section>
-              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+            <section>
+              <header className="flex flex-wrap gap-2 justify-between items-center my-1">
                 <div>
-                  <h2 class="text-xl font-medium leading-tight max-w-full">Brands</h2>
-                  <p class="text-sm text-gray-700">Find products by brands</p>
+                  <h2 className="text-xl font-medium leading-tight max-w-full">Brands</h2>
+                  <p className="text-sm text-gray-700">Find products by brands</p>
                 </div>
-                <div class="hidden sm:inline-block">
-                  <a href="/page/brands" class="" title="All product brands"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></a>
+                <div className="hidden sm:inline-block">
+                  <Link href="/page/brands" className="" title="All product brands"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></Link >
                 </div>
               </header>
-              <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-          
+              <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+
                 <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126748/conversions/samsung-logo-original.webp"} />
                 <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126753/conversions/apple-logo-original.webp"} />
                 <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126751/conversions/tecno-logo-original.webp"} />
@@ -147,40 +148,40 @@ export default function Home() {
                 <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126761/conversions/sony-logo-original.webp"} />
                 <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126762/conversions/oneplus-logo-original.webp"} />
               </ol>
-              <div class="sm:hidden my-3 flex justify-center">
-                <a href="/page/brands" class="" title="All product brands"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></a>
+              <div className="sm:hidden my-3 flex justify-center">
+                <Link href="/page/brands" className="" title="All product brands"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></Link >
               </div>
             </section>
             <section>
-              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+              <header className="flex flex-wrap gap-2 justify-between items-center my-1">
                 <div>
-                  <h2 class="text-xl font-medium leading-tight ">Recently viewed</h2>
-                  <p class="text-sm text-gray-700">Product view history</p>
+                  <h2 className="text-xl font-medium leading-tight ">Recently viewed</h2>
+                  <p className="text-sm text-gray-700">Product view history</p>
                 </div>
-                <div class="hidden sm:inline-block">
-                  <a href="/user/viewed" class="" title="My recently viewed products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></a>
+                <div className="hidden sm:inline-block">
+                  <Link href="/user/viewed" className="" title="My recently viewed products"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></Link >
                 </div>
               </header>
-              <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
                 <RecentlyViewed img={"https://api.priceinkenya.com/media/123573/conversions/samsunggalaxys215gc-original.webp"} title={"Samsung Galaxy S21 5G"} model={"KES 70,500"} quantity={421} />
                 <RecentlyViewed img={"https://api.priceinkenya.com/media/129210/conversions/redmia1plusb-original.webp"} title={"Xiaomi Redmi A1 Plus"} model={"KES 10,999"} quantity={133} />
               </ul>
-              <div class="sm:hidden my-3 flex justify-center">
-                <a href="/user/viewed" class="" title="My recently viewed products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></a>
+              <div className="sm:hidden my-3 flex justify-center">
+                <Link href="/user/viewed" className="" title="My recently viewed products"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></Link >
               </div>
             </section>
             <section>
-              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+              <header className="flex flex-wrap gap-2 justify-between items-center my-1">
                 <div>
-                  <h2 class="text-xl font-medium leading-tight  max-w-full">Product categories</h2>
-                  <p class="text-sm text-gray-700">Find products by category</p>
+                  <h2 className="text-xl font-medium leading-tight  max-w-full">Product categories</h2>
+                  <p className="text-sm text-gray-700">Find products by category</p>
                 </div>
-                <div class="hidden sm:inline-block">
-                  <a href="/page/categories" class="" title="All product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+                <div className="hidden sm:inline-block">
+                  <Link href="/page/categories" className="" title="All product categories"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></Link >
                 </div>
               </header>
-              <div class="bg-white border py-8 rounded-md">
-                <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+              <div className="bg-white border py-8 rounded-md">
+                <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
 
                   <ProductCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
                   <ProductCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
@@ -194,8 +195,8 @@ export default function Home() {
                   <ProductCategories img={"https://api.priceinkenya.com/media/130067/conversions/Bluetooth-headset-original.webp"} title={"Cameras"} quantity={41} />
                 </ol>
               </div>
-              <div class="sm:hidden my-3 flex justify-center">
-                <a href="/page/categories" class="" title="All product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+              <div className="sm:hidden my-3 flex justify-center">
+                <Link href="/page/categories" className="" title="All product categories"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></Link >
               </div>
             </section>
           </div>

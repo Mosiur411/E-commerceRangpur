@@ -1,4 +1,6 @@
 import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
+import Link from 'next/link'
+
 export default function Navbar() {
     return (
         <>
@@ -10,11 +12,11 @@ export default function Navbar() {
                     </button>
                     <div className="flex flex-auto lg:space-x-1 justify-between lg:justify-start items-center">
                         <div>
-                            <a href="/" title="Price in Kenya" className="nuxt-link-active">
+                            <Link href="/" title="Price in Kenya" className="nuxt-link-active">
                                 <picture placeholder="" className="cursor-pointer hover:opacity-80 text-transparent">
                                     <img srcSet="https://api.priceinkenya.com/images/app-logo-desktop.svg" width="171" height="28" alt="Price in Kenya" />
                                 </picture>
-                            </a>
+                            </Link >
                         </div>
                         <div className="hidden lg:flex flex-auto lg:px-3">
                             <div aria-label="Search" role="search" className="w-full max-w-sm lg:mx-auto text-gray-700 text-sm shadow-md relative">
@@ -42,7 +44,7 @@ export default function Navbar() {
                                     <AiOutlineDown />
                                 </button>
                             </div>
-                            <a href="/user/cart" title="Shopping cart" className="rounded-md font-medium py-2 px-4 text-sm hover:bg-warm-gray-500 hover:text-gray-700">Cart </a>
+                            <Link href="/user/cart" title="Shopping cart" className="rounded-md font-medium py-2 px-4 text-sm hover:bg-warm-gray-500 hover:text-gray-700">Cart </Link >
                             <div className="inline-flex flex-col">
                                 <button aria-haspopup="true" aria-label="User profile menu" className="rounded-md font-medium py-2 px-4 text-sm hover:bg-warm-gray-500 hover:text-gray-700 flex items-center">
                                     <p className="line-clamp-1">Account</p>
@@ -52,13 +54,13 @@ export default function Navbar() {
                             </div>
                         </nav>
                         <div className="flex items-center space-x-1">
-                            <a href="tel:+254718794014" title="Call us" className="text-white text-sm font-medium hidden lg:block hover:bg-warm-gray-500 hover:text-gray-700 p-2 rounded-md"><span className="line-clamp-1">0718 794 014</span></a>
-                            <a href="https://wa.me/254718794014" rel="external nofollow noopener noreferrer" target="_blank" title="Message us on WhatsApp" className="hover:bg-gray-800 rounded-md w-8 h-8 flex items-center justify-center">
+                            <Link href="tel:+254718794014" title="Call us" className="text-white text-sm font-medium hidden lg:block hover:bg-warm-gray-500 hover:text-gray-700 p-2 rounded-md"><span className="line-clamp-1">0718 794 014</span></Link >
+                            <Link href="https://wa.me/254718794014" rel="external nofollow noopener noreferrer" target="_blank" title="Message us on WhatsApp" className="hover:bg-gray-800 rounded-md w-8 h-8 flex items-center justify-center">
                                 <picture placeholder="" className="cursor-pointer hover:opacity-80 text-transparent">
 
                                     <img srcSet="https://api.priceinkenya.com/images/whatsapp.svg" width="21" height="21" alt="Whatsapp" />
                                 </picture>
-                            </a>
+                            </Link >
                         </div>
                     </div>
                 </div>

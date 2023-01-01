@@ -2,6 +2,8 @@ import { GoLocation } from "react-icons/go";
 import { IoMdCall } from "react-icons/io";
 import { MdMarkEmailRead } from "react-icons/md";
 import { BiAlarm } from "react-icons/bi";
+import Link from 'next/link'
+
 export default function Footer() {
     return (
         <footer
@@ -11,11 +13,11 @@ export default function Footer() {
                 <div className="grid md:grid-cols-2 gap-2 gap-y-8">
                     <div className="space-y-3">
                         <div className="w-max">
-                            <a href="/" title="Price in Kenya" className="nuxt-link-active">
+                            <Link href="/" title="Price in Kenya" className="nuxt-link-active">
                                 <picture placeholder="" className="cursor-pointer hover:opacity-80 text-transparent">
                                     <img srcSet="https://api.priceinkenya.com/images/app-logo-desktop.svg" width="233" height="38" alt="Price in Kenya" />
                                 </picture>
-                            </a>
+                            </Link >
                         </div>
                         <p>
                             Established as a reviews website in mid 2012, Price in Kenya is the market leader for home electronics. 10 years on, we remain your independent and trusted online and physical store serving Nairobi, Mombasa, Kisumu and
@@ -32,23 +34,23 @@ export default function Footer() {
                         <div className="flex items-center space-x-5">
                             <GoLocation />
                             <address>
-                                <a href="https://g.page/r/CYlWdPoEKvZDEAE" rel="external nofollow noopener noreferrer" target="_blank" title="Find us on Google Maps!" className="hover:underline">
+                                <Link href="https://g.page/r/CYlWdPoEKvZDEAE" rel="external nofollow noopener noreferrer" target="_blank" title="Find us on Google Maps!" className="hover:underline">
                                     Bihi Towers, Ground Floor, Suite G8, Moi Avenue, Nairobi CBD, Kenya
-                                </a>
+                                </Link >
                             </address>
                         </div>
                         <div className="flex items-center space-x-5">
                             <IoMdCall />
                             <div>
-                                <a href="tel:+254718794014" title="Call us" className="hover:underline not-italic">0718 794 014</a><br />
-                                <a href="tel:+254711102363" title="Call us" className="hover:underline not-italic">0711 102 363</a><br />
+                                <Link href="tel:+254718794014" title="Call us" className="hover:underline not-italic">0718 794 014</Link ><br />
+                                <Link href="tel:+254711102363" title="Call us" className="hover:underline not-italic">0711 102 363</Link ><br />
                             </div>
                         </div>
                         <div className="flex items-center space-x-5">
                             <MdMarkEmailRead />
                             <div>
-                                <a href="mailto:sales@priceinkenya.com" title="Email us" className="hover:underline not-italic">sales@priceinkenya.com - customer care</a><br />
-                                <a href="mailto:admin@priceinkenya.com" title="Email us" className="hover:underline not-italic">admin@priceinkenya.com - any website issue</a>
+                                <Link href="mailto:sales@priceinkenya.com" title="Email us" className="hover:underline not-italic">sales@priceinkenya.com - customer care</Link ><br />
+                                <Link href="mailto:admin@priceinkenya.com" title="Email us" className="hover:underline not-italic">admin@priceinkenya.com - any website issue</Link >
                             </div>
                         </div>
                         <div className="flex items-center space-x-5">
@@ -64,8 +66,8 @@ export default function Footer() {
                 <div className="grid md:grid-cols-2 gap-2 border-t border-gray-300 items-center py-2 text-xs font-normal">
                     <div className="flex flex-wrap gap-2"><p>Copyright © 2012-2022 Price in Kenya. All rights reserved.</p></div>
                     <nav className="flex flex-wrap gap-y-2 gap-x-3 lg:gap-x-5">
-                        <a href="/user/cart" className="hover:underline">Shopping cart</a> <a href="/user/liked" className="hover:underline">Likes</a> <a href="/user/viewed" className="hover:underline">Recently viewed</a>
-                        <a href="/compares" className="hover:underline">Latest comparisons</a> <a href="/price-list" className="hover:underline">Price list</a>
+                        <Link href="/user/cart" className="hover:underline">Shopping cart</Link > <Link href="/user/liked" className="hover:underline">Likes</Link > <Link href="/user/viewed" className="hover:underline">Recently viewed</Link >
+                        <Link href="/compares" className="hover:underline">Latest comparisons</Link > <Link href="/price-list" className="hover:underline">Price list</Link >
                     </nav>
                 </div>
             </div>
