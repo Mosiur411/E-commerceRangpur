@@ -6,7 +6,7 @@ export default function StockProducts({title,model,img,quantity}) {
         <li className="relative rounded-md overflow-hidden cursor-pointer hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out bg-white py-3.5">
             <Link href="/product/112419-apple-iphone-14-plus" className="flex flex-col h-full space-y-3.5" title="Apple iPhone 14 Plus 256GB from Price in Kenya">
                 <div className="flex justify-center items-center overflow-x-auto p-4">
-                <Image src={img} width={32} height={32} alt="Image"/>
+                <Image src={img} width={120} height={120} alt="Image"/>
                 </div>
                 <div className="px-3.5 flex-auto flex flex-col justify-end">
                     <div className="space-y-1">
