@@ -1,4 +1,11 @@
 import Head from 'next/head'
+import Featured from '../components/Pages/Product/Featured'
+import PopularCategories from '../components/Pages/Product/PopularCategories'
+import StockProducts from '../components/Pages/Product/StockProducts'
+import ProductCategories from '../components/Pages/Product/ProductCategories'
+import Upcoming from '../components/Pages/Product/Upcoming'
+import Brands from '../components/Pages/Product/Brands'
+import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
 
 export default function Home() {
   return (
@@ -9,33 +16,191 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className='text-3xl font-bold '>
-        What is Lorem Ipsum?
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      <main role="main" class="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
+        <article>
+          {/* PopularCategories  */}
+          <section class="my-1 mt-5">
+            <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+              <div>
+                <h2 class=" font-medium leading-tight text-base max-w-full">Popular categories</h2>
+                <p class="text-sm text-gray-700">Popular categories on Price in Kenya</p>
+              </div>
+              <div class="hidden sm:inline-block">
+                <a href="/page/categories" class="" title="Featured product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+              </div>
+            </header>
+            <div class="hidden lg:block">
+              <div class="bg-white border py-8 rounded-md">
+                <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130075/conversions/smartwatch-2-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130063/conversions/Camera-2-original.webp"} title={"Cameras"} quantity={41} />
+                </ol>
+              </div>
+            </div>
+            <div class="lg:hidden">
+              <div class="bg-white border py-8 rounded-md">
+                <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130075/conversions/smartwatch-2-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
+                  <PopularCategories img={"https://api.priceinkenya.com/media/130063/conversions/Camera-2-original.webp"} title={"Cameras"} quantity={41} />
+                </ol>
+              </div>
+            </div>
+            <div class="sm:hidden my-3 flex justify-center">
+              <a href="/page/categories" class="" title="Featured product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+            </div>
+          </section>
+          <header class="my-1 mt-5">
+            <h1 class="text-2xl font-medium leading-tight max-w-full">Featured</h1>
+            <p class="text-sm text-gray-700">Latest deals from Price in Kenya</p>
+          </header>
+          <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+            <Featured img={"https://api.priceinkenya.com/media/125240/conversions/xiaomiredminote11pro4gh-original.webp"} title={"Xiaomi Redmi Note 11 Pro 4G"} quantity={39} model={"KES 33,500"} />
+            <Featured img={"https://api.priceinkenya.com/media/128997/conversions/iphone14promaxd-original.webp"} title={"Xiaomi Redmi A1 Plus"} quantity={27} model={"KES 10,999"} />
+            <Featured img={"https://api.priceinkenya.com/media/123983/conversions/nokia-x10-6gb128gb-nFlgcppvie-original.webp"} title={"Nokia X10"} quantity={36} model={"KES 21,900"} />
+            <Featured img={"https://api.priceinkenya.com/media/123986/conversions/nokia-x20-8gb128gb-asf0OEBLnB-original.webp"} title={"Nokia X20"} quantity={47} model={"KES 27,000"} />
+            <Featured img={"https://api.priceinkenya.com/media/128039/conversions/camon19promondrianq-original.webp"} title={"Tecno Camon 19 Pro Mondrian Edition"} quantity={33} model={"KES 34,300"} />
+            <Featured img={"https://api.priceinkenya.com/media/127254/conversions/GalaxyZFold4c-original.webp"} title={"Samsung Galaxy Z Fold 4 5G"} quantity={19} model={"KES 180,000"} />
+            <Featured img={"https://api.priceinkenya.com/media/125240/conversions/xiaomiredminote11pro4gh-original.webp"} title={"Xiaomi Redmi Note 11 Pro 4G"} quantity={39} model={"KES 33,500"} />
+            <Featured img={"https://api.priceinkenya.com/media/128997/conversions/iphone14promaxd-original.webp"} title={"Xiaomi Redmi A1 Plus"} quantity={27} model={"KES 10,999"} />
+            <Featured img={"https://api.priceinkenya.com/media/123983/conversions/nokia-x10-6gb128gb-nFlgcppvie-original.webp"} title={"Nokia X10"} quantity={36} model={"KES 21,900"} />
+            <Featured img={"https://api.priceinkenya.com/media/123986/conversions/nokia-x20-8gb128gb-asf0OEBLnB-original.webp"} title={"Nokia X20"} quantity={47} model={"KES 27,000"} />
+          </ul>
+          <div class="space-y-6 mt-6">
+            <section>
+              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+                <div>
+                  <h2 class="text-xl font-medium leading-tight max-w-full">What's new</h2>
+                  <p class="text-sm text-gray-700">Recently in stock products</p>
+                </div>
+                <div class="hidden sm:inline-block">
+                  <a href="/page/whats-new" class="" title="What's new"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All new arrivals</span></a>
+                </div>
+              </header>
+              <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+                <StockProducts img={"https://api.priceinkenya.com/media/128643/conversions/iphone14plusa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128613/conversions/iphone14plusa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128592/conversions/iphone14j-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128670/conversions/iphone14proa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128697/conversions/iphone14promaxd-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128844/conversions/iphone14j-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128874/conversions/iphone14j-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128895/conversions/iphone14plusa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128922/conversions/iphone14proa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+                <StockProducts img={"https://api.priceinkenya.com/media/128946/conversions/iphone14proa-original.webp"} title={"Apple iPhone 14 Plus"} quantity={7} model={"KES 131,000"} />
+              </ul>
+              <div class="sm:hidden my-3 flex justify-center">
+                <a href="/page/whats-new" class="" title="What's new"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All new arrivals</span></a>
+              </div>
+            </section>
+            <section>
+              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+                <div>
+                  <h2 class="text-xl font-medium leading-tight max-w-full">Upcoming</h2>
+                  <p class="text-sm text-gray-700">Products to be available soon</p>
+                </div>
+                <div class="hidden sm:inline-block">
+                  <a href="/page/upcoming-products" class="" title="Upcoming products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All upcoming</span></a>
+                </div>
+              </header>
+              <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+                <Upcoming img={"https://api.priceinkenya.com/media/130589/conversions/xiaomi13proj-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130636/conversions/oppofindn2flipc-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130603/conversions/vivoy35a-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130568/conversions/xiaomi13j-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130542/conversions/oppoa17a-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130457/conversions/phantomx2a-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130589/conversions/xiaomi13proj-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130636/conversions/oppofindn2flipc-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130603/conversions/vivoy35a-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+                <Upcoming img={"https://api.priceinkenya.com/media/130589/conversions/xiaomi13proj-original.webp"} title={"Xiaomi 13 Pro"} quantity={3} model={"KES 110,999"} />
+              </ul>
+              <div class="sm:hidden my-3 flex justify-center">
+                <a href="/page/upcoming-products" class="" title="Upcoming products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All upcoming</span></a>
+              </div>
+            </section>
+             <section>
+              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+                <div>
+                  <h2 class="text-xl font-medium leading-tight max-w-full">Brands</h2>
+                  <p class="text-sm text-gray-700">Find products by brands</p>
+                </div>
+                <div class="hidden sm:inline-block">
+                  <a href="/page/brands" class="" title="All product brands"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></a>
+                </div>
+              </header>
+              <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+          
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126748/conversions/samsung-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126753/conversions/apple-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126751/conversions/tecno-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126752/conversions/infinix-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126756/conversions/xiaomi-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126749/conversions/huawei-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126750/conversions/nokia-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126760/conversions/oppo-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126761/conversions/sony-logo-original.webp"} />
+                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126762/conversions/oneplus-logo-original.webp"} />
+              </ol>
+              <div class="sm:hidden my-3 flex justify-center">
+                <a href="/page/brands" class="" title="All product brands"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></a>
+              </div>
+            </section>
+            <section>
+              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+                <div>
+                  <h2 class="text-xl font-medium leading-tight ">Recently viewed</h2>
+                  <p class="text-sm text-gray-700">Product view history</p>
+                </div>
+                <div class="hidden sm:inline-block">
+                  <a href="/user/viewed" class="" title="My recently viewed products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></a>
+                </div>
+              </header>
+              <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+                <RecentlyViewed img={"https://api.priceinkenya.com/media/123573/conversions/samsunggalaxys215gc-original.webp"} title={"Samsung Galaxy S21 5G"} model={"KES 70,500"} quantity={421} />
+                <RecentlyViewed img={"https://api.priceinkenya.com/media/129210/conversions/redmia1plusb-original.webp"} title={"Xiaomi Redmi A1 Plus"} model={"KES 10,999"} quantity={133} />
+              </ul>
+              <div class="sm:hidden my-3 flex justify-center">
+                <a href="/user/viewed" class="" title="My recently viewed products"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></a>
+              </div>
+            </section>
+            <section>
+              <header class="flex flex-wrap gap-2 justify-between items-center my-1">
+                <div>
+                  <h2 class="text-xl font-medium leading-tight  max-w-full">Product categories</h2>
+                  <p class="text-sm text-gray-700">Find products by category</p>
+                </div>
+                <div class="hidden sm:inline-block">
+                  <a href="/page/categories" class="" title="All product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+                </div>
+              </header>
+              <div class="bg-white border py-8 rounded-md">
+                <ol class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
 
-        Why do we use it?
-        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-        Where does it come from?
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-
-        Where can I get some?
-        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-
-        5
-        paragraphs
-        words
-        bytes
-        lists
-        Start with 'Lorem
-        ipsum dolor sit amet...'
-
-      </h1>
-
-
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130075/conversions/smartwatch-2-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130063/conversions/Camera-2-original.webp"} title={"Cameras"} quantity={41} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130074/conversions/earbuds-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130072/conversions/laptop-2-original.webp"} title={"TVs"} quantity={97} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130068/conversions/Bluetooth-speaker-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130071/conversions/Soundar-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
+                  <ProductCategories img={"https://api.priceinkenya.com/media/130067/conversions/Bluetooth-headset-original.webp"} title={"Cameras"} quantity={41} />
+                </ol>
+              </div>
+              <div class="sm:hidden my-3 flex justify-center">
+                <a href="/page/categories" class="" title="All product categories"><span class="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></a>
+              </div>
+            </section>
+          </div>
+        </article>
+      </main>
     </>
   )
 }
