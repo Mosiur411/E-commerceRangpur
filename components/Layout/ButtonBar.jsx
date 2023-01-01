@@ -3,7 +3,7 @@ import React from 'react'
 export default function ButtonBar() {
     return (
         <main>
-            <nav class="fixed max-h-20 bottom-0 inset-x-0 bg-cool-gray-500 text-xs text-gray-600 shadow-inner">
+            <nav class="fixed max-h-20 bg-white bottom-0 inset-x-0 bg-cool-gray-500 text-xs text-gray-600 shadow-inner">
                 <div class="max-w-screen-xl mx-auto lg:px-2 gap-x-4 flex justify-between overflow-x-scroll">
                     <a href="/" title="Price in Kenya" class="w-full block py-2 px-3 lg:pb-5 text-center hover:bg-gray-200 transition duration-300 nuxt-link-active">
                         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1 mx-auto">
