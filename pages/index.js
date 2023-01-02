@@ -7,6 +7,7 @@ import Upcoming from '../components/Pages/Product/Upcoming'
 import Brands from '../components/Pages/Product/Brands'
 import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
 import Link from 'next/link'
+import CategoriesSearch from '../components/Shared/Search/CategoriesSearch'
 
 export default function Home() {
   return (
