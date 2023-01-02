@@ -436,6 +436,8 @@ export const phone = [
     {
         name: 'Apple iPhone X 64GB Refurbished',
         brand: 'Apple',
+        role: 'phone',
+        quantity: "321",
         img: ["https://api.priceinkenya.com/media/119938/conversions/iphonexb-original.webp", "https://api.priceinkenya.com/media/119940/conversions/apple-iphone-x-64-gb-G08939HZwN-original.webp", "https://api.priceinkenya.com/media/119939/conversions/iphonexa-original.webp", "https://api.priceinkenya.com/media/119937/conversions/iphonexc-original.webp"],
         price: "10023452",
         release: "September, 2017",
