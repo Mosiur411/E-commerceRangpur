@@ -2,7 +2,7 @@ import ShortBrandNames from "./ShortBrandNames";
 
 export default function BrandSearch() {
     return (
-        <div className=" w-[550px] h-[600px] overflow-scroll p-2">
+        <div className=" w-[550px] h-[600px] overflow-scroll py-2 px-5 bg-white text-black shadow-2xl">
             <div className="flex justify-between items-stretch gap-6">
                 <div className="flex-1">
                     <div>

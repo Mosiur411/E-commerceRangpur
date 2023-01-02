@@ -1,7 +1,7 @@
 import ShortBrandNames from "./ShortBrandNames";
 
 export default function CategoriesSearch() {
-    return (<div className=" w-[300px] h-[600px] overflow-scroll p-2">
+    return (<div className=" w-[300px] h-[600px] overflow-scroll py-2 px-5 bg-white text-black shadow-2xl">
         <div className="flex flex-col gap-2">
             <ShortBrandNames name={"Smartphones"} stock={"23"} />
             <ShortBrandNames name={"TVs"} stock={"23"} />

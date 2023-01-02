@@ -7,8 +7,6 @@ import Upcoming from '../components/Pages/Product/Upcoming'
 import Brands from '../components/Pages/Product/Brands'
 import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
 import Link from 'next/link'
-import CategoriesSearch from '../components/Shared/Search/CategoriesSearch'
-import BrandSearch from '../components/Shared/Search/BrandSearch'
 
 export default function Home() {
   return (
@@ -19,9 +17,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <CategoriesSearch />
-      <BrandSearch />
       <main role="main" className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
         <article>
           {/* PopularCategories  */}

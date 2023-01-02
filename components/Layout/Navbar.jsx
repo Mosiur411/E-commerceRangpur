@@ -1,7 +1,12 @@
 import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
 import Link from 'next/link'
+import { useState } from "react";
+import BrandSearch from "../Shared/Search/BrandSearch";
+import CategoriesSearch from "../Shared/Search/CategoriesSearch";
 
 export default function Navbar() {
+    const [Brand, setBrand] = useState(false)
+    const [Categories, setCategories] = useState(false)
     return (
         <>
             <header className="py-1 bg-[#AB4725] shadow  z-10 sticky top-0">
@@ -32,17 +37,29 @@ export default function Navbar() {
                             </div>
                         </div>
                         <nav className="hidden lg:flex space-x-1 text-white text-xs">
-                            <div className="inline-flex flex-col">
+                            <div className="inline-flex flex-col" onMouseOver={() => setBrand(true)} onMouseLeave={() => setBrand(false)}>
                                 <button aria-haspopup="true" aria-label="Brands menu" className="rounded-md font-medium py-2 px-4 text-sm hover:bg-warm-gray-500 hover:text-gray-700 flex items-center">
                                     <p>Brands</p>
                                     <AiOutlineDown />
                                 </button>
+                                <div className="absolute top-12 ">
+                                    {
+                                        Brand && <BrandSearch />
+                                    }
+
+                                </div>
                             </div>
-                            <div className="inline-flex flex-col">
+                            <div onMouseOver={() => setCategories(true)} onMouseLeave={() => setCategories(false)} className="inline-flex flex-col">
                                 <button aria-haspopup="true" aria-label="Categories menu" className="rounded-md font-medium py-2 px-4 text-sm hover:bg-warm-gray-500 hover:text-gray-700 flex items-center">
                                     <p>Categories</p>
                                     <AiOutlineDown />
                                 </button>
+                                <div className="absolute top-12">
+                                    {
+                                        Categories && <CategoriesSearch />
+                                    }
+
+                                </div>
                             </div>
                             <Link href="/user/cart" title="Shopping cart" className="rounded-md font-medium py-2 px-4 text-sm hover:bg-warm-gray-500 hover:text-gray-700">Cart </Link >
                             <div className="inline-flex flex-col">
