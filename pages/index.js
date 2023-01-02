@@ -7,8 +7,12 @@ import Upcoming from '../components/Pages/Product/Upcoming'
 import Brands from '../components/Pages/Product/Brands'
 import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
 import Link from 'next/link'
+import { dataCheck } from '../Try'
 
 export default function Home() {
+  const data = dataCheck
+
+
   return (
     <>
       <Head>
@@ -33,11 +37,9 @@ export default function Home() {
             <div className="hidden lg:block">
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130075/conversions/smartwatch-2-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130063/conversions/Camera-2-original.webp"} title={"Cameras"} quantity={41} />
+                  {
+                    data.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                  }
                 </ol>
               </div>
             </div>
@@ -53,7 +55,7 @@ export default function Home() {
               </div>
             </div>
             <div className="sm:hidden my-3 flex justify-center">
-              <Link href="/page/categories" className="" title="Featured product categories"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></Link >
+              <Link href="page/categories" className="" title="Featured product categories"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All categories</span></Link >
             </div>
           </section>
           <header className="my-1 mt-5">
@@ -182,17 +184,9 @@ export default function Home() {
               </header>
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130075/conversions/smartwatch-2-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130063/conversions/Camera-2-original.webp"} title={"Cameras"} quantity={41} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130074/conversions/earbuds-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130072/conversions/laptop-2-original.webp"} title={"TVs"} quantity={97} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130068/conversions/Bluetooth-speaker-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130071/conversions/Soundar-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
-                  <ProductCategories img={"https://api.priceinkenya.com/media/130067/conversions/Bluetooth-headset-original.webp"} title={"Cameras"} quantity={41} />
+                  {
+                    data.slice(0, 10).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                  }
                 </ol>
               </div>
               <div className="sm:hidden my-3 flex justify-center">
