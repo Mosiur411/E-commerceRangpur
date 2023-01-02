@@ -7,10 +7,12 @@ import Upcoming from '../components/Pages/Product/Upcoming'
 import Brands from '../components/Pages/Product/Brands'
 import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
 import Link from 'next/link'
-import { dataCheck } from '../Try'
+import { brandName, dataCheck } from '../Try'
 
 export default function Home() {
   const data = dataCheck
+  const brandData = brandName
+
 
 
   return (
@@ -46,11 +48,9 @@ export default function Home() {
             <div className="lg:hidden">
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130065/conversions/Smartphone-original.webp"} title={"Smartphones"} quantity={388} extraQuantity={35} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130076/conversions/Tvs-2-original.webp"} title={"TVs"} quantity={97} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130073/conversions/Tablet-original.webp"} title={"Tablets"} quantity={81} extraQuantity={16} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130075/conversions/smartwatch-2-original.webp"} title={"Smartwatches"} quantity={54} extraQuantity={1} />
-                  <PopularCategories img={"https://api.priceinkenya.com/media/130063/conversions/Camera-2-original.webp"} title={"Cameras"} quantity={41} />
+                  {
+                    data.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                  }
                 </ol>
               </div>
             </div>
@@ -138,17 +138,9 @@ export default function Home() {
                 </div>
               </header>
               <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126748/conversions/samsung-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126753/conversions/apple-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126751/conversions/tecno-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126752/conversions/infinix-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126756/conversions/xiaomi-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126749/conversions/huawei-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126750/conversions/nokia-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126760/conversions/oppo-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126761/conversions/sony-logo-original.webp"} />
-                <Brands quantity={124} ExtraQuantity={3} rating={4.5} img={"https://api.priceinkenya.com/media/126762/conversions/oneplus-logo-original.webp"} />
+                {
+                  brandData.map(data => <Brands quantity={data?.quantity} ExtraQuantity={data?.ExtraQuantity} rating={data?.rating} img={data?.img} path={data?.path} />)
+                }
               </ol>
               <div className="sm:hidden my-3 flex justify-center">
                 <Link href="/page/brands" className="" title="All product brands"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All brands</span></Link >
@@ -172,6 +164,9 @@ export default function Home() {
                 <Link href="/user/viewed" className="" title="My recently viewed products"><span className="py-1.5 px-4 text-sm bg-white font-medium rounded-md text-gray-600 hover:text-gray-700 hover:shadow-md">All recently viewed</span></Link >
               </div>
             </section>
+
+
+
             <section>
               <header className="flex flex-wrap gap-2 justify-between items-center my-1">
                 <div>
