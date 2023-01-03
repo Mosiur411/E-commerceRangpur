@@ -8,8 +8,8 @@ export const product = createApi({
     tagTypes: ['product'],
     endpoints: (builder) => ({
         getProduct: builder.mutation({
-            query: ({ pathName }) => ({
-                url: `api/v1/product/${pathName}/${pathName}`,
+            query: ({ pathName, brand, page, limit }) => ({
+                url: `api/v1/product/${pathName}/${pathName}/?brand=${brand}&page=${page}&limit=${limit}`,
                 method: 'GET',
             }),
             providesTags: ['product'],
