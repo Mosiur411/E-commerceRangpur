@@ -1,12 +1,32 @@
 import { useRouter } from "next/router"
+import { useEffect } from "react"
+import { useGetProductMutation } from "../app/features/api/product"
 import Featured from "../components/Pages/Product/Featured"
 import { phone } from "../Try"
 
 export default function content() {
+    const [GetData, { data }] = useGetProductMutation()
+    console.log(data)
     const router = useRouter()
     const path = router.query.path
     const pathName = path?.join('/')
-    const data = phone
+    useEffect(() => {
+        if (pathName) {
+            GetData({ pathName })
+        }
+
+    }, [])
+
+
+
+
+
+
+
+
+
+    console.log(data)
+    const datas = phone
     return (
         <div className="bg-[#F1F1F1]">
             <main class="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen ">
@@ -80,7 +100,7 @@ export default function content() {
                 <section>
                     <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
                         {
-                            data.map(data => {
+                            datas.map(data => {
                                 return (
                                     <Featured img={data?.img[0]} title={data.name} quantity={data?.quantity} model={data?.price} />
                                 )
