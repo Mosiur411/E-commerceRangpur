@@ -28,7 +28,8 @@ const tvs = new Schema({
     role: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        default:'tvs'
     }
 }, { timestamps: true });
 const SchemaTvs = models.tvs || model('tvs', tvs);

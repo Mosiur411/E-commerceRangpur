@@ -13,7 +13,6 @@ const GetPhone = async (req, res) => {
             fastPrice = parseInt(dataPrice[0])
             secondPrice = parseInt(dataPrice[1])
         }
-
         /* brand section */
         const brandName = req.query.brand
         /* pageOptions */

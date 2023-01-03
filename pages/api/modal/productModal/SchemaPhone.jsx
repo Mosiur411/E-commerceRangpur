@@ -28,7 +28,8 @@ const phone = new Schema({
     role: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        default: 'phone'
     }
 }, { timestamps: true });
 const SchemaPhone = models.phone || model('phone', phone);
