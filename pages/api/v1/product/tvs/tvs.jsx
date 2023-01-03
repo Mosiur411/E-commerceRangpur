@@ -1,7 +1,7 @@
-import SchemaPhone from "../../../modal/productModal/SchemaPhone";
+import SchemaTvs from "../../../modal/productModal/SchemaTvs";
 import connectDatabase from "../../../utils/bd";
 
-const GetPhone = async (req, res) => {
+const GetTvs = async (req, res) => {
     try {
         await connectDatabase()
         let fastPrice;
@@ -23,11 +23,11 @@ const GetPhone = async (req, res) => {
         }
         let result;
         if (!fastPrice && !secondPrice && !brandName) {
-            result = await SchemaPhone.find({}).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
+            result = await SchemaTvs.find({}).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
 
         }
         if ((fastPrice && secondPrice) || brandName) {
-            result = await SchemaPhone.find({ $or: [{ brand: { $eq: brandName } }, { price: { $gte: fastPrice } }, { price: { $lte: secondPrice } }] }).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
+            result = await SchemaTvs.find({ $or: [{ brand: { $eq: brandName } }, { price: { $gte: fastPrice } }, { price: { $lte: secondPrice } }] }).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
         }
         if (result) {
             res.status(200).json({ result });
@@ -37,4 +37,4 @@ const GetPhone = async (req, res) => {
         return res.status(500).json(errorMessage)
     }
 }
-export default GetPhone;
+export default GetTvs;

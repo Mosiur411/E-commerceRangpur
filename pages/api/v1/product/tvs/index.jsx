@@ -1,6 +1,7 @@
-import SchemaTvs from "../../modal/productModal/SchemaTvs";
-import connectDatabase from "../../utils/bd";
-const CreatePhone = async (req, res) => {
+import SchemaTvs from "../../../modal/productModal/SchemaTvs";
+import connectDatabase from "../../../utils/bd";
+
+const CreateTvs = async (req, res) => {
     try {
         await connectDatabase()
         const tvs = req.body;
@@ -13,4 +14,4 @@ const CreatePhone = async (req, res) => {
         return res.status(500).json(errorMessage)
     }
 }
-export default CreatePhone;
+export default CreateTvs;

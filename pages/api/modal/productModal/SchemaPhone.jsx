@@ -21,7 +21,7 @@ const phone = new Schema({
         required: true
     },
     price: {
-        type: String,
+        type: Number,
         trim: true,
         required: true,
     },
