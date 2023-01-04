@@ -1,5 +1,5 @@
 import { Schema, model, models } from 'mongoose';
-const tvs = new Schema({
+const product = new Schema({
     name: {
         type: String,
         trim: true,
@@ -25,12 +25,11 @@ const tvs = new Schema({
         trim: true,
         required: true,
     },
-    role: {
+    type: {
         type: String,
         trim: true,
         required: true,
-        default:'tvs'
-    }
+    },
 }, { timestamps: true });
-const SchemaTvs = models.tvs || model('tvs', tvs);
-export default SchemaTvs
+const SchemaProducts = models.product || model('product', product);
+export default SchemaProducts
