@@ -1,3 +1,5 @@
+import Image from "next/image"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import { useProductIDQuery } from "../../app/features/api/ProductControl"
 
@@ -12,14 +14,14 @@ export default function Product() {
                     <div>
                         <div className="flex flex-col items-center space-y-5">
                             <div className="flex items-center justify-center overflow-hidden">
-                                <img src={data?.img} />
+                                <Image src={data?.img}   width='400' height="100" alt="img"/>
                             </div>
                             <div className="grid grid-cols-4 gap-2 max-w-sm items-center">
                                 <div>
-                                    <img src={data?.img} className="w-20" />
+                                     <Image src={data?.img} className="w-20" width='100' height="100" alt="img"/>
                                 </div>
                                 <div>
-                                    <img src={data?.img} className="w-20" />
+                                     <Image src={data?.img} className="w-20" width='100' height="100" alt="img"/>
                                 </div>
                             </div>
                         </div>
@@ -49,9 +51,9 @@ export default function Product() {
                         <h1 className=" leading-tight  max-w-full text-xl font-bold">{data?.name}</h1>
                         <div className="space-y-2 mt-4"><p>Order Nokia 6.1 Plus X6 from Price in Kenya with fast delivery across the country and in-store pickup in Nairobi.</p></div>
                     </header>
-                    <a href="/brand/nokia" className=" flex items-start w-max" title="All Nokia products">
-                        <img src="https://api.priceinkenya.com/media/126750/conversions/nokia-logo-original.webp" className="w-20" />
-                    </a>
+                    <Link href="/brand/nokia" className=" flex items-start w-max" title="All Nokia products">
+                         <Image src="https://api.priceinkenya.com/media/126750/conversions/nokia-logo-original.webp" className="w-20" width='100' height="100" alt="img"/>
+                    </Link>
                     <div className="space-y-3">
                         <h2 className="font-medium leading-tight text-base max-w-full">
                             <span className="font-normal">
@@ -111,13 +113,13 @@ export default function Product() {
                             <p className="text-xs uppercase">In Stock</p>
                         </div>
                         <div className="p-0.5">
-                            <a href="/user/cart?product=nokia-61-plus-x6" className="" title="Buy Nokia 6.1 Plus X6">
+                            <Link href="/user/cart?product=nokia-61-plus-x6" className="" title="Buy Nokia 6.1 Plus X6">
                                 <div
                                     className=" block max-w-sm text-center px-7 py-3 rounded-md text-white font-medium bg-[#AB4725] hover:shadow-md active:shadow-md focus:border-[#AB4725] focus:ring-offset-0 focus:ring-2 focus:ring-[#AB4725] focus:outline-none"
                                 >
                                     BUY
                                 </div>
-                            </a>
+                            </Link>
                             <p className="text-xs mt-5"><strong>Kindly note </strong> that though we strive to keep all products up to date, price and availability are subject to change without prior notice.</p>
                         </div>
                     </div>
@@ -143,23 +145,23 @@ export default function Product() {
                         </ul>
                         <hr />
                         <div className="flex space-x-5 items-center">
-                            <img alt="home page" height="20" src="/_nuxt/6653b9d300ec411af54d8ed138e9e9b4.svg" width="20" className="text-transparent" />
+                             <Image alt="home page" height="20" src="/_nuxt/6653b9d300ec411af54d8ed138e9e9b4.svg" width="20" className="text-transparent" />
                             <address>
-                                <a href="https://g.page/r/CYlWdPoEKvZDEAE" rel="external nofollow noopener noreferrer" target="_blank" title="Find us on Google Maps!" className="hover:underline">
+                                <Link href="https://g.page/r/CYlWdPoEKvZDEAE" rel="external nofollow noopener noreferrer" target="_blank" title="Find us on Google Maps!" className="hover:underline">
                                     Bihi Towers, Ground Floor, Suite G8, Moi Avenue, Nairobi CBD.
-                                </a>
+                                </Link>
                                 <br />
-                                <a href="tel:+254718794014" title="Call us" className="hover:underline not-italic">0718 794 014</a><br />
-                                <a href="tel:+254711102363" title="Call us" className="hover:underline not-italic">0711 102 363</a><br />
+                                <Link href="tel:+254718794014" title="Call us" className="hover:underline not-italic">0718 794 014</Link><br />
+                                <Link href="tel:+254711102363" title="Call us" className="hover:underline not-italic">0711 102 363</Link><br />
                             </address>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                            <a href="https://apps.apple.com/ke/app/price-in-kenya/id1581082296" title="Apple App Store" rel="external nofollow noopener noreferrer" target="_blank">
-                                <img src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" />
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.price_in_kenya" title="Google Play Store" rel="external nofollow noopener noreferrer" target="_blank">
-                                <img src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" />
-                            </a>
+                            <Link href="https://apps.apple.com/ke/app/price-in-kenya/id1581082296" title="Apple App Store" rel="external nofollow noopener noreferrer" target="_blank">
+                                 <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" width='100' height="100" alt="img" />
+                            </Link>
+                            <Link href="https://play.google.com/store/apps/details?id=com.price_in_kenya" title="Google Play Store" rel="external nofollow noopener noreferrer" target="_blank">
+                                 <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" width='100' height="100" alt="img"/>
+                            </Link>
                         </div>
                     </aside>
                 </div>

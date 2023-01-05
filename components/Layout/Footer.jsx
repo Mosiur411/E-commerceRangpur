@@ -3,6 +3,7 @@ import { IoMdCall } from "react-icons/io";
 import { MdMarkEmailRead } from "react-icons/md";
 import { BiAlarm } from "react-icons/bi";
 import Link from 'next/link'
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -15,7 +16,7 @@ export default function Footer() {
                         <div className="w-max">
                             <Link href="/" title="Price in Kenya" className="nuxt-link-active">
                                 <picture placeholder="" className="cursor-pointer hover:opacity-80 text-transparent">
-                                    <img srcSet="https://api.priceinkenya.com/images/app-logo-desktop.svg" width="233" height="38" alt="Price in Kenya" />
+                                    <Image srcSet="https://api.priceinkenya.com/images/app-logo-desktop.svg" width="233" height="38" alt="Price in Kenya" />
                                 </picture>
                             </Link >
                         </div>
@@ -24,9 +25,9 @@ export default function Footer() {
                             most Kenyan towns.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <img src="https://api.priceinkenya.com/media/126934/conversions/app-gallery-original.webp" className="w-[130px]" />
-                            <img src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-[130px]" />
-                            <img src="https://api.priceinkenya.com/media/126936/conversions/apple-store-original.webp" className="w-[130px]" />
+                            <Image src="https://api.priceinkenya.com/media/126934/conversions/app-gallery-original.webp" width="233" height="38" alt="Price in Kenya" />
+                            <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-[130px]" width="233" height="38" alt="Price in Kenya" />
+                            <Image src="https://api.priceinkenya.com/media/126936/conversions/apple-store-original.webp" className="w-[130px]" width="233" height="38" alt="Price in Kenya" />
 
                         </div>
                     </div>

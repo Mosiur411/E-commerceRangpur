@@ -1,13 +1,13 @@
+import Link from "next/link"
 import { useRouter } from "next/router"
 import { useProductGetQuery } from "../app/features/api/ProductControl"
 import Featured from "../components/Pages/Product/Featured"
 
-export default function content() {
+export default function Content() {
     const router = useRouter()
     const path = router.query.path
     const pathName = path?.join('/')
     const { data } = useProductGetQuery(pathName)
-    console.log(data)
 
     return (
         <div className="bg-[#F1F1F1]">
@@ -17,7 +17,7 @@ export default function content() {
                         <h1 className="text-2xl font-medium leading-tight max-w-full">Smartphones </h1>
                         <p className="text-sm text-gray-700">
                             Shop for Smartphones from Price in Kenya or download <br />
-                            our <a href="/price-list/phones" title="Smartphones Price list" className="font-semibold hover:text-gray-600">Smartphones Price list. </a>
+                            our  <Link href="/price-list/phones" title="Smartphones Price list" className="font-semibold hover:text-gray-600">Smartphones Price list.  </Link>
                         </p>
                     </div>
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -85,7 +85,7 @@ export default function content() {
                         {
                             data?.map(data => {
                                 return (
-                                    <Featured img={data?.img} title={data.name} quantity={data?.quantity} price={data?.price} model={data?.model} />
+                                    <Featured key={data?._id} img={data?.img} title={data.name} quantity={data?.quantity} price={data?.price} model={data?.model} />
                                 )
                             })
                         }
@@ -135,100 +135,100 @@ export default function content() {
                     </header>
                     <ol className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-1.5 text-sm">
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1563-10k?stock_status=1" className="" title="All Below KSh 10K Smartphones from Price in Kenya">
+                             <Link href="/phones/1563-10k?stock_status=1" className="" title="All Below KSh 10K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>Below KSh 10K</p>
                                     <p className="text-gray-500">21 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1564-10k?stock_status=1" className="" title="All KSh 10K - 20K Smartphones from Price in Kenya">
+                             <Link href="/phones/1564-10k?stock_status=1" className="" title="All KSh 10K - 20K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 10K - 20K</p>
                                     <p className="text-gray-500">83 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1565-20k?stock_status=1" className="" title="All KSh 20K - 30K Smartphones from Price in Kenya">
+                             <Link href="/phones/1565-20k?stock_status=1" className="" title="All KSh 20K - 30K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 20K - 30K</p>
                                     <p className="text-gray-500">80 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1569-30k?stock_status=1" className="" title="All KSh 30K - 40K Smartphones from Price in Kenya">
+                             <Link href="/phones/1569-30k?stock_status=1" className="" title="All KSh 30K - 40K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 30K - 40K</p>
                                     <p className="text-gray-500">32 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1570-40k?stock_status=1" className="" title="All KSh 40K - 50K Smartphones from Price in Kenya">
+                             <Link href="/phones/1570-40k?stock_status=1" className="" title="All KSh 40K - 50K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 40K - 50K</p>
                                     <p className="text-gray-500">38 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1571-50k?stock_status=1" className="" title="All KSh 50K - 60K Smartphones from Price in Kenya">
+                             <Link href="/phones/1571-50k?stock_status=1" className="" title="All KSh 50K - 60K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 50K - 60K</p>
                                     <p className="text-gray-500">26 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1572-60k?stock_status=1" className="" title="All KSh 60K - 70K Smartphones from Price in Kenya">
+                             <Link href="/phones/1572-60k?stock_status=1" className="" title="All KSh 60K - 70K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 60K - 70K</p>
                                     <p className="text-gray-500">11 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1573-70k?stock_status=1" className="" title="All KSh 70K - 80K Smartphones from Price in Kenya">
+                             <Link href="/phones/1573-70k?stock_status=1" className="" title="All KSh 70K - 80K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 70K - 80K</p>
                                     <p className="text-gray-500">15 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1574-80k?stock_status=1" className="" title="All KSh 80K - 90K Smartphones from Price in Kenya">
+                             <Link href="/phones/1574-80k?stock_status=1" className="" title="All KSh 80K - 90K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 80K - 90K</p>
                                     <p className="text-gray-500">17 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1575-90k?stock_status=1" className="" title="All KSh 90K - 100K Smartphones from Price in Kenya">
+                             <Link href="/phones/1575-90k?stock_status=1" className="" title="All KSh 90K - 100K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 90K - 100K</p>
                                     <p className="text-gray-500">14 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1576-100k?stock_status=1" className="" title="All KSh 100K - 200K Smartphones from Price in Kenya">
+                             <Link href="/phones/1576-100k?stock_status=1" className="" title="All KSh 100K - 200K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 100K - 200K</p>
                                     <p className="text-gray-500">48 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                         <li className="overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out space-y-2 flex flex-col bg-white border rounded-md">
-                            <a href="/phones/1577-200k?stock_status=1" className="" title="All KSh 200K - 300K Smartphones from Price in Kenya">
+                             <Link href="/phones/1577-200k?stock_status=1" className="" title="All KSh 200K - 300K Smartphones from Price in Kenya">
                                 <div className="flex flex-col p-4 space-y-1">
                                     <p>KSh 200K - 300K</p>
                                     <p className="text-gray-500">3 items</p>
                                 </div>
-                            </a>
+                             </Link>
                         </li>
                     </ol>
                 </section>

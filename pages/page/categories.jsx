@@ -2,8 +2,8 @@ import Link from "next/link";
 import { useCateGorQuery } from "../../app/features/api/ProductControl";
 import ProductCategories from "../../components/Pages/Product/ProductCategories";
 
-export default function categories() {
-    const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
+export default function Categories() {
+    const { data,isLoading } = useCateGorQuery()
 
     return (
         <main className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
@@ -17,7 +17,7 @@ export default function categories() {
                 <div className="bg-white border py-8 rounded-md">
                     <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
                         {
-                            cateGories?.map(data => <ProductCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                            data?.map(data => <ProductCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
                         }
 
                     </ol>

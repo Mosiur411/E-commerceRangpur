@@ -143,7 +143,7 @@ export default function Home() {
               </header>
               <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
                 {
-                  brand?.map(data => <Brands quantity={data?.quantity} ExtraQuantity={data?.ExtraQuantity} rating={data?.rating} img={data?.img} path={data?.path} />)
+                  brand?.map(data => <Brands key={data?._id} quantity={data?.quantity} ExtraQuantity={data?.ExtraQuantity} rating={data?.rating} img={data?.img} path={data?.path} />)
                 }
               </ol>
               <div className="sm:hidden my-3 flex justify-center">
