@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-export default function Featured({ img, model, quantity, title, id }) {
+export default function Featured({ img, model, quantity, title, price }) {
     return (
         <li className="relative rounded-md overflow-hidden cursor-pointer hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out bg-white py-3.5">
-            <Link href={`/product/${id}`} className="flex flex-col h-full space-y-3.5" title="Xiaomi Redmi Note 11 Pro 4G 8GB/128GB from Price in Kenya">
+            <Link href={`/product/${model}`} className="flex flex-col h-full space-y-3.5" title="Xiaomi Redmi Note 11 Pro 4G 8GB/128GB from Price in Kenya">
                 <div className="flex justify-center items-center overflow-x-auto p-4">
                     <Image src={img} width={120} height={120} alt="Image" />
 
@@ -16,7 +16,7 @@ export default function Featured({ img, model, quantity, title, id }) {
                         </div>
                     </div>
                     <p className="text-sm font-medium text-gray-600 mt-1.5">{title}</p>
-                    <p className="text-sm font-normal">{model}</p>
+                    <p className="text-sm font-normal">{price}</p>
                 </div>
             </Link >
             <button className="absolute top-0 right-2 flex items-center justify-center gap-x-1 text-xs p-2 group rounded-full bg-gray-100 hover:bg-primary-50 text-gray-500">

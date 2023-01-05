@@ -7,11 +7,14 @@ import Brands from '../components/Pages/Product/Brands'
 import PopularCategories from '../components/Pages/Product/PopularCategories'
 import Link from 'next/link'
 import { useBrandQuery, useCateGorQuery } from '../app/features/api/ProductControl'
+import Loading from '../components/Shared/Loading/Loading'
 export default function Home() {
-  const { data:cateGories } = useCateGorQuery()
+  const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
   const { data: brand, isLoading: BandLoading } = useBrandQuery()
 
-
+  if (cateGoriesLoading || BandLoading) {
+    return <Loading />
+  }
 
 
 
@@ -49,9 +52,9 @@ export default function Home() {
             <div className="lg:hidden">
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                  {/* {
-                    data.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
-                  } */}
+                  {
+                    cateGories?.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                  }
                 </ol>
               </div>
             </div>
@@ -180,9 +183,9 @@ export default function Home() {
               </header>
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                  {/* {
-                    data.slice(0, 10).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
-                  } */}
+                {
+                    cateGories?.slice(0, 10).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                  }
                 </ol>
               </div>
               <div className="sm:hidden my-3 flex justify-center">

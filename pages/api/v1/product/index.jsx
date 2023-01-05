@@ -5,15 +5,15 @@ const ProductGet = async (req, res) => {
     try {
         await connectDatabase()
         const data = req.query.type;
-        const ID = req.query.id;
+        const Model = req.query.model;
         const brand = req.body.brand;
         const pageOptions = {
             page: parseInt(req.query.page),
             limit: parseInt(req.query.limit)
         }
         let result;
-        if (ID) {
-            result = await SchemaProducts.findById({ _id: ID })
+        if (Model) {
+            result = await SchemaProducts.findOne({ model: Model })
         }
         if (data) {
             /*  $or: [{ brand: { $eq: brand } }] */

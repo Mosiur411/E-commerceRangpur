@@ -14,8 +14,8 @@ export const ProductControl = createApi({
             invalidatesTags: ['productData'],
         }),
         productID: builder.query({
-            query: (id) => ({
-                url: `api/v1/product/?id=${id}`,
+            query: (modal) => ({
+                url: `api/v1/product/?model=${modal}`,
             }),
             invalidatesTags: ['productID'],
         }),
