@@ -9,7 +9,7 @@ export default function Navbar() {
     const [Categories, setCategories] = useState(false)
     return (
         <>
-            <header className="py-1 bg-[#AB4725] shadow  z-10 sticky top-0">
+            <header className="py-1 bg-[#124d9d] shadow  z-10 sticky top-0">
                 <div className="flex items-center max-w-screen-xl mx-auto px-2">
                     <button aria-expanded="false" aria-haspopup="true" aria-label="Main menu" className="lg:hidden text-white mr-3 sm:mr-0 px-1.5 py-1.5">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-6 h-6 block"><path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>

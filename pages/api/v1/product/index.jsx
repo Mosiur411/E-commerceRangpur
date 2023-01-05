@@ -3,16 +3,18 @@ import connectDatabase from "../../utils/bd";
 
 const ProductGet = async (req, res) => {
     try {
-        // console.log(req.query.type)
         await connectDatabase()
         const data = req.query.type;
+        const ID = req.query.id;
         const brand = req.body.brand;
-
         const pageOptions = {
             page: parseInt(req.query.page),
             limit: parseInt(req.query.limit)
         }
         let result;
+        if (ID) {
+            result = await SchemaProducts.findById({ _id: ID })
+        }
         if (data) {
             /*  $or: [{ brand: { $eq: brand } }] */
 

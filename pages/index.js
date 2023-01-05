@@ -1,17 +1,17 @@
 import Head from 'next/head'
 import Featured from '../components/Pages/Product/Featured'
-import PopularCategories from '../components/Pages/Product/PopularCategories'
 import StockProducts from '../components/Pages/Product/StockProducts'
-import ProductCategories from '../components/Pages/Product/ProductCategories'
 import Upcoming from '../components/Pages/Product/Upcoming'
-import Brands from '../components/Pages/Product/Brands'
 import RecentlyViewed from '../components/Pages/Product/RecentlyViewed'
+import Brands from '../components/Pages/Product/Brands'
+import PopularCategories from '../components/Pages/Product/PopularCategories'
 import Link from 'next/link'
-import { brandName, dataCheck } from '../Try'
-
+import { useBrandQuery, useCateGorQuery } from '../app/features/api/ProductControl'
 export default function Home() {
-  const data = dataCheck
-  const brandData = brandName
+  const { data:cateGories } = useCateGorQuery()
+  const { data: brand, isLoading: BandLoading } = useBrandQuery()
+
+
 
 
 
@@ -25,6 +25,7 @@ export default function Home() {
       </Head>
       <main role="main" className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
         <article>
+
           {/* PopularCategories  */}
           <section className="my-1 mt-5">
             <header className="flex flex-wrap gap-2 justify-between items-center my-1">
@@ -40,7 +41,7 @@ export default function Home() {
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
                   {
-                    data.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
+                    cateGories?.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
                   }
                 </ol>
               </div>
@@ -48,9 +49,9 @@ export default function Home() {
             <div className="lg:hidden">
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                  {
+                  {/* {
                     data.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
-                  }
+                  } */}
                 </ol>
               </div>
             </div>
@@ -139,7 +140,7 @@ export default function Home() {
               </header>
               <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
                 {
-                  brandData.map(data => <Brands quantity={data?.quantity} ExtraQuantity={data?.ExtraQuantity} rating={data?.rating} img={data?.img} path={data?.path} />)
+                  brand?.map(data => <Brands quantity={data?.quantity} ExtraQuantity={data?.ExtraQuantity} rating={data?.rating} img={data?.img} path={data?.path} />)
                 }
               </ol>
               <div className="sm:hidden my-3 flex justify-center">
@@ -179,9 +180,9 @@ export default function Home() {
               </header>
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                  {
+                  {/* {
                     data.slice(0, 10).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
-                  }
+                  } */}
                 </ol>
               </div>
               <div className="sm:hidden my-3 flex justify-center">

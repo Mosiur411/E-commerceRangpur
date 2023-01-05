@@ -5,14 +5,36 @@ export const ProductControl = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: URL
     }),
-    tagTypes: ['productData'],
+    tagTypes: ['productData', "productID", "brand", "categories"],
     endpoints: (builder) => ({
         productGet: builder.query({
             query: (data) => ({
                 url: `api/v1/product/?type=${data}`,
             }),
             invalidatesTags: ['productData'],
+        }),
+        productID: builder.query({
+            query: (id) => ({
+                url: `api/v1/product/?id=${id}`,
+            }),
+            invalidatesTags: ['productID'],
+        }),
+        brand: builder.query({
+            query: () => ({
+                url: `api/v1/product/barnd`,
+            }),
+            invalidatesTags: ['brand'],
+        }),
+
+        cateGor: builder.query({
+            query: () => ({
+                url: "api/v1/product/categories"
+            })
         })
+
+
+
+
     })
 })
-export const { useProductGetQuery } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery } = ProductControl;
