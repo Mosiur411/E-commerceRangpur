@@ -6,7 +6,7 @@ const ProductGet = async (req, res) => {
         await connectDatabase()
         const data = req.query.type;
         const Model = req.query.model;
-        const brand = req.body.brand;
+        const brand = req.query.brand;
         const pageOptions = {
             page: parseInt(req.query.page),
             limit: parseInt(req.query.limit)

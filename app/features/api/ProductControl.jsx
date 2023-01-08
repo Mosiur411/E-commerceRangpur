@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const URL = 'https://e-commerce-rangpur.vercel.app/';
+const URL = 'http://localhost:3000/';
+// const URL = 'https://e-commerce-rangpur.vercel.app/';
 export const ProductControl = createApi({
     reducerPath: "Product",
     baseQuery: fetchBaseQuery({
@@ -8,8 +9,8 @@ export const ProductControl = createApi({
     tagTypes: ['productData', "productID", "brand", "categories"],
     endpoints: (builder) => ({
         productGet: builder.query({
-            query: (data) => ({
-                url: `api/v1/product/?type=${data}`,
+            query: (filterInfo) => ({
+                url: `api/v1/product/?type=${filterInfo?.pathName}&brand=${filterInfo?.brand ? filterInfo?.brand:''}&page=${filterInfo?.page}&limit=${filterInfo?.limit}`,
             }),
             invalidatesTags: ['productData'],
         }),
