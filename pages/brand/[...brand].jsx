@@ -3,6 +3,7 @@ import { useBrandProductQuery } from "../../app/features/api/ProductControl";
 import Featured from "../../components/Pages/Product/Featured";
 
 export default function Brand() {
+  const { data } = useBrandProductQuery(BrandInfo)
   const router = useRouter()
   const path = router.query.brand;
   if (!path) {
@@ -13,7 +14,7 @@ export default function Brand() {
     brand: path[1]
   }
 
-  const { data } = useBrandProductQuery(BrandInfo)
+  
   return (
     <main className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
       <section>
