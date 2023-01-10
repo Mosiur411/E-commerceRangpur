@@ -42,7 +42,7 @@ export default function Navbar() {
                                     <p>Brands</p>
                                     <AiOutlineDown />
                                 </button>
-                                <div className="absolute top-12 ">
+                                <div className="absolute top-10 ">
                                     {
                                         Brand && <BrandSearch />
                                     }

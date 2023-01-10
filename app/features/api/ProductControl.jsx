@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const URL = 'http://localhost:3000/';
-// const URL = 'https://e-commerce-rangpur.vercel.app/';
+// const URL = 'http://localhost:3000/';
+const URL = 'https://e-commerce-rangpur.vercel.app/';
 export const ProductControl = createApi({
     reducerPath: "Product",
     baseQuery: fetchBaseQuery({
@@ -10,7 +10,7 @@ export const ProductControl = createApi({
     endpoints: (builder) => ({
         productGet: builder.query({
             query: (filterInfo) => ({
-                url: `api/v1/product/?type=${filterInfo?.pathName}&brand=${filterInfo?.brand ? filterInfo?.brand:''}&page=${filterInfo?.page}&limit=${filterInfo?.limit}`,
+                url: `api/v1/product/?type=${filterInfo?.pathName}&brand=${filterInfo?.brand ? filterInfo?.brand : ''}&page=${filterInfo?.page}&limit=${filterInfo?.limit}`,
             }),
             invalidatesTags: ['productData'],
         }),
@@ -31,6 +31,11 @@ export const ProductControl = createApi({
             query: () => ({
                 url: "api/v1/product/categories"
             })
+        }),
+        brandProduct: builder.query({
+            query: (BrandInfo) => ({
+                url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`
+            })
         })
 
 
@@ -38,4 +43,4 @@ export const ProductControl = createApi({
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery,useBrandProductQuery } = ProductControl;
