@@ -1,20 +1,21 @@
 import { useRouter } from "next/router"
+import { useEffect } from "react";
 import { useBrandProductQuery } from "../../app/features/api/ProductControl";
 import Featured from "../../components/Pages/Product/Featured";
 
 export default function Brand() {
-  const { data } = useBrandProductQuery(BrandInfo)
   const router = useRouter()
   const path = router.query.brand;
   if (!path) {
     return;
   }
+  
   const BrandInfo = {
     type: path[0],
     brand: path[1]
   }
-
-  
+  useEffect(() => { }, [path])
+  const { data } = useBrandProductQuery(BrandInfo)
   return (
     <main className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">
       <section>
