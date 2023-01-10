@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { useBrandProductQuery } from "../../app/features/api/ProductControl"
+import { useBrandProductQuery } from "../../app/features/api/ProductControl";
 import Featured from "../../components/Pages/Product/Featured";
 
 export default function Brand() {
