@@ -1,30 +1,30 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// const URL = 'http://localhost:3000/';
-const URL = 'https://e-commerce-rangpur.vercel.app/';
+const URL = 'http://localhost:3000/';
+// const URL = 'https://e-commerce-rangpur.vercel.app/';
 export const ProductControl = createApi({
     reducerPath: "Product",
     baseQuery: fetchBaseQuery({
         baseUrl: URL
     }),
-    tagTypes: ['productData', "productID", "brand", "categories"],
+    tagTypes: ['ProductData', "ProductID", "Brand", "Categories", "Admin"],
     endpoints: (builder) => ({
         productGet: builder.query({
             query: (filterInfo) => ({
                 url: `api/v1/product/?type=${filterInfo?.pathName}&brand=${filterInfo?.brand ? filterInfo?.brand : ''}&page=${filterInfo?.page}&limit=${filterInfo?.limit}`,
             }),
-            invalidatesTags: ['productData'],
+            providesTags: ['ProductData'],
         }),
         productID: builder.query({
             query: (modal) => ({
                 url: `api/v1/product/?model=${modal}`,
             }),
-            invalidatesTags: ['productID'],
+            providesTags: ['ProductID'],
         }),
         brand: builder.query({
             query: () => ({
                 url: `api/v1/product/barnd`,
             }),
-            invalidatesTags: ['brand'],
+            providesTags: ['Brand'],
         }),
 
         cateGor: builder.query({
@@ -36,11 +36,29 @@ export const ProductControl = createApi({
             query: (BrandInfo) => ({
                 url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`
             })
+        }),
+        /*  search product  */
+        searchProduct: builder.query({
+            query: (data) => ({
+                url: `api/v1/product/search?filter=${data}`
+            })
+        }),
+        /* ==================== admin Product control =======================*/
+        adminGetProduct: builder.query({
+            query: (data) => ({
+                url: `api/v1/admin/?type=${data}`
+            }),
+            providesTags: ['Admin'],
+        }),
+        adminDeletePost: builder.mutation({
+            query: (id) => ({
+                url: `api/v1/admin/adminproductdelete/?type=${id}`,
+                method: "DELETE"
+            }),
+            invalidatesTags: ['Admin'],
         })
-
-
 
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery,useBrandProductQuery } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery,useAdminDeletePostMutation } = ProductControl;
