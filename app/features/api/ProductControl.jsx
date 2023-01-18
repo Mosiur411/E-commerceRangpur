@@ -44,11 +44,27 @@ export const ProductControl = createApi({
             })
         }),
         /* ==================== admin Product control =======================*/
+        adminProductAdd: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/product/addProduct`,
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ['Admin'],
+        }),
         adminGetProduct: builder.query({
             query: (data) => ({
                 url: `api/v1/admin/?type=${data}`
             }),
             providesTags: ['Admin'],
+        }),
+        adminProductUpdate: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/addProductUpdate`,
+                method: "PUT",
+                body: data
+            }),
+            invalidatesTags: ['Admin'],
         }),
         adminDeletePost: builder.mutation({
             query: (id) => ({
@@ -56,9 +72,10 @@ export const ProductControl = createApi({
                 method: "DELETE"
             }),
             invalidatesTags: ['Admin'],
-        })
+        }),
+
 
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery,useAdminDeletePostMutation } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation } = ProductControl;

@@ -13,6 +13,7 @@ const product = new Schema({
     model: {
         type: String,
         trim: true,
+        unique : true,
         required: true
     },
     img: {
@@ -25,7 +26,37 @@ const product = new Schema({
         trim: true,
         required: true,
     },
+    unPrice: {
+        type: Number,
+        default: '0',
+        trim: true,
+    },
+    inStock: {
+        type: Number,
+        trim: true,
+        required: true,
+    },
     type: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    description: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    shortDescription: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    byuLink: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    subCategory: {
         type: String,
         trim: true,
         required: true,
@@ -33,3 +64,12 @@ const product = new Schema({
 }, { timestamps: true });
 const SchemaProducts = models.product || model('product', product);
 export default SchemaProducts
+
+/* 
+
+buy Link
+
+
+
+
+*/

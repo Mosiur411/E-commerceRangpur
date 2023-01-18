@@ -4,12 +4,16 @@ const CreateProduct = async (req, res) => {
     try {
         await connectDatabase()
         const data = req.body;
-        console.log(data)
-        const ProductInfo = await SchemaProducts(data)
-        if (!ProductInfo) return res.status(404).json({ error: "NeedData not phone" })
-        const result = await ProductInfo.save()
-        console.log(result)
-        return res.status(200).json({ result })
+        let result;
+        if (data) {
+            result = await SchemaProducts.updateMany({ _id: data?.id }, { $set: data }, {
+                runValidators: true,
+            })
+
+        }
+        if (result) {
+            return res.status(200).json(result)
+        }
     } catch (err) {
         const errorMessage = errorMessageFormatter(err)
         return res.status(500).json(errorMessage)

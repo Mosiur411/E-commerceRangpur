@@ -11,6 +11,7 @@ import Loading from '../components/Shared/Loading/Loading'
 export default function Home() {
   const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
   const { data: brand, isLoading: BandLoading } = useBrandQuery()
+  console.log(cateGories)
 
   if (cateGoriesLoading || BandLoading) {
     return <Loading />

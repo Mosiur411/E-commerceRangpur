@@ -9,7 +9,6 @@ import Navbar from './Navbar'
 export default function Layout({ children }) {
     const router = useRouter()
     const dashboard = router.asPath
-    console.log("router", router)
     if (!dashboard) {
         return
     }
@@ -21,7 +20,7 @@ export default function Layout({ children }) {
                 <div>
                     <Sidebar />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 bg-slate-400">
                     <main>{children}</main>
                 </div>
             </div>
@@ -34,7 +33,33 @@ export default function Layout({ children }) {
                 <div>
                     <Sidebar />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 bg-slate-700">
+                    <main>{children}</main>
+                </div>
+            </div>
+
+        </div>
+    }else if (dashboard === '/admin/category') {
+        content = <div >
+            <AdminNavbar />
+            <div className="flex">
+                <div>
+                    <Sidebar />
+                </div>
+                <div className="flex-1 ">
+                    <main>{children}</main>
+                </div>
+            </div>
+
+        </div>
+    }else if (dashboard === '/admin/brand') {
+        content = <div >
+            <AdminNavbar />
+            <div className="flex">
+                <div>
+                    <Sidebar />
+                </div>
+                <div className="flex-1 ">
                     <main>{children}</main>
                 </div>
             </div>
