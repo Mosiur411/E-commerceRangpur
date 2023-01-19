@@ -91,10 +91,18 @@ export const ProductControl = createApi({
                 body: data
             }),
             invalidatesTags: ['Categories'],
+        }),
+        categoriesDelete: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/categories/delete`,
+                method: "DELETE",
+                body: data
+            }),
+            invalidatesTags: ['Categories'],
         })
 
 
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation,useCategoriesUpdateMutation } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation,useCategoriesUpdateMutation,useCategoriesDeleteMutation} = ProductControl;

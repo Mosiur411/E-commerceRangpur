@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
-import { useCategoriesPostMutation, useCateGorQuery } from '../../app/features/api/ProductControl'
+import { useCategoriesDeleteMutation, useCategoriesPostMutation, useCateGorQuery } from '../../app/features/api/ProductControl'
 import CategoryUpdate from '../../components/Pages/Dashboard/CategoryUpdate'
 
 export default function category() {
@@ -9,6 +9,7 @@ export default function category() {
   const [categoryAdd, setCategoryAdd] = useState(false)
   const [addCategory, { isSuccess }] = useCategoriesPostMutation()
   const { data: cateGoriesGet, isLoading: cateGoriesLoading } = useCateGorQuery()
+  const [removeCategory] = useCategoriesDeleteMutation()
 
   if (isSuccess) {
     toast("Success");
@@ -143,7 +144,7 @@ export default function category() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex justify-end gap-4">
-                          <button x-data="{ tooltip: 'Delete' }" >{/* onClick={() => removeProduct(data?._id)} */}
+                          <button onClick={() => removeCategory(data?._id)} x-data="{ tooltip: 'Delete' }" >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -161,7 +162,7 @@ export default function category() {
                             </svg>
                           </button>{/*  onClick={() => SetModelHandel(!modelHandel)}*/}
                           <button onClick={() => updateValue(data?._id)} x-data="{ tooltip: 'Edite' }" >
-                           
+
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -180,8 +181,8 @@ export default function category() {
                           </button>
 
                           {
-                              modelHandel && <CategoryUpdate data={updateDataPass} SetModelHandel={SetModelHandel} modelHandel={modelHandel} />
-                            }
+                            modelHandel && <CategoryUpdate data={updateDataPass} SetModelHandel={SetModelHandel} modelHandel={modelHandel} />
+                          }
                         </div>
                       </td>
                     </tr>
