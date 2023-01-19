@@ -1,5 +1,5 @@
-import SchemaCategories from "../../modal/productModal/SchemaCategories";
-import connectDatabase from "../../utils/bd";
+import SchemaCategories from "../../../modal/productModal/SchemaCategories"
+import connectDatabase from '../../../utils/bd'
 const Categories = async (req, res) => {
     try {
         await connectDatabase()

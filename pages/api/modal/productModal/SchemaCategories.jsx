@@ -22,6 +22,7 @@ const categories = new Schema({
     },
     path: {
         type: String,
+        unique: true,
         trim: true,
         required: true,
     },

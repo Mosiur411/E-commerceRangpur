@@ -27,11 +27,6 @@ export const ProductControl = createApi({
             providesTags: ['Brand'],
         }),
 
-        cateGor: builder.query({
-            query: () => ({
-                url: "api/v1/product/categories"
-            })
-        }),
         brandProduct: builder.query({
             query: (BrandInfo) => ({
                 url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`
@@ -73,9 +68,33 @@ export const ProductControl = createApi({
             }),
             invalidatesTags: ['Admin'],
         }),
+        /* ==================== admin Product categories  =======================*/
+        categoriesPost: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/categories/postCategories`,
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ['Categories'],
+        }),
+
+        cateGor: builder.query({
+            query: () => ({
+                url: "api/v1/admin/categories"
+            }),
+            providesTags: ['Categories'],
+        }),
+        categoriesUpdate: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/categories/update`,
+                method: "PUT",
+                body: data
+            }),
+            invalidatesTags: ['Categories'],
+        })
 
 
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation,useCategoriesUpdateMutation } = ProductControl;
