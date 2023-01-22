@@ -4,27 +4,19 @@ import connectDatabase from "../../utils/bd"
 const brandProduct = async (req, res) => {
     try {
         await connectDatabase()
-        // const data = req.query.type;
+        const data = req.query.type;
         const brand = req.query.brand;
         const pageOptions = {
             page: parseInt(req.query.page),
             limit: parseInt(req.query.limit)
         }
         let result;
-        if (brand) {
-            result = await SchemaProducts.find({ brand: brand }).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
+        if (data && brand) {
+            const filterData = await SchemaProducts.find({ type: data }).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
+            if (filterData) {
+                result = filterData.filter(data => data.brand == brand)
+            }
         }
-
-
-        // if(brand){
-        //     result =await SchemaProducts.find({ type: data })
-        // }
-        // if (data && brand) {
-        //     const filterData = await SchemaProducts.find({ type: data }).skip(pageOptions.page * pageOptions.limit).limit(pageOptions.limit).sort({ price: 1 })
-        //     if (filterData) {
-        //         result = filterData.filter(data => data.brand == brand)
-        //     }
-        // }
         if (result) {
             return res.status(200).json(result)
         }

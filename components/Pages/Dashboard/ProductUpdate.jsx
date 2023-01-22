@@ -22,7 +22,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
             const data = { ...inputs, id: passData?._id, description: passData?.description || Description, shortDescription: passData?.shortDescription || ShortDescription }
             UpdateProduct(data)
         }
-        Description
+        
     }
     useEffect(() => {
         if (isSuccess) {

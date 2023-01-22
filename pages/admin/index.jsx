@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-
 import { useAdminDeletePostMutation, useAdminGetProductQuery, useBrandQuery, useCateGorQuery } from '../../app/features/api/ProductControl'
 import ProductUpdate from '../../components/Pages/Dashboard/ProductUpdate'
 

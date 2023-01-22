@@ -4,7 +4,17 @@ import { FiLogOut } from "react-icons/fi";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { useRouter } from 'next/router';
+import auth from '../../../firebase.init';
+import { useSignOut } from 'react-firebase-hooks/auth';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 export default function Sidebar() {
+    const [signOut, loading, error] = useSignOut(auth);
+    useEffect(() => {
+        if (loading) {
+            toast("login out")
+        }
+    }, [loading])
     const router = useRouter()
     return (
         <main className='py-1 bg-white shadow  z-10 sticky top-[45px]'>
@@ -27,7 +37,7 @@ export default function Sidebar() {
                         <RiSendPlaneFill size={20} />
                         <span className="text-[20px]">Brand</span>
                     </div>
-                    <div onClick={() => setDelete(!Delete)} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
+                    <div onClick={() => signOut()} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
                         <FiLogOut size={20} />
                         <span className="text-[20px]">Log out</span>
                     </div>
