@@ -187,10 +187,6 @@ export default function category() {
                 </tbody>
               </table>
             </div>
-
-
-
-
           </div>
         }
         {

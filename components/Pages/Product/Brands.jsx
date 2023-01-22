@@ -8,19 +8,6 @@ export default function Brands({ quantity, ExtraQuantity, rating, img, path }) {
                 <Image src={img} width={120} height={120} alt="Image" />
 
             </Link >
-            <div className="flex items-center p-2">
-                <div className="flex-auto flex flex-col justify-center text-center">
-                    <div className="flex justify-center items-center space-x-0.5">
-                        <p className="text-base font-medium text-gray-600">{quantity}</p>
-                        {
-                            ExtraQuantity && <span className="text-secondary font-medium">+{ExtraQuantity}</span>
-                        }
-
-                    </div>
-                    <p className="text-gray-500">Items</p>
-                </div>
-                <p className="flex-auto flex flex-col justify-center text-center"><span className="text-base font-medium text-gray-600">{rating}</span> <span className="text-gray-500">Rating</span></p>
-            </div>
         </li>
     )
 }

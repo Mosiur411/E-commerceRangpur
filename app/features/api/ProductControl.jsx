@@ -20,12 +20,6 @@ export const ProductControl = createApi({
             }),
             providesTags: ['ProductID'],
         }),
-        brand: builder.query({
-            query: () => ({
-                url: `api/v1/product/barnd`,
-            }),
-            providesTags: ['Brand'],
-        }),
 
         brandProduct: builder.query({
             query: (BrandInfo) => ({
@@ -99,10 +93,41 @@ export const ProductControl = createApi({
                 body: data
             }),
             invalidatesTags: ['Categories'],
-        })
+        }),
+        /* ==================== admin Product Bramd  =======================*/
+        brand: builder.query({
+            query: () => ({
+                url: `api/v1/admin/brand`,//get data
+            }),
+            providesTags: ['Brand'],
+        }),
+        brandPost:builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/brand/postBrand`,
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ['Brand'],
+        }),
+        brandUpdate: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/brand/update`,
+                method: "PUT",
+                body: data
+            }),
+            invalidatesTags: ['Brand'],
+        }),
+        BrandDelete: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/brand/delete`,
+                method: "DELETE",
+                body: data
+            }),
+            invalidatesTags: ['Brand'],
+        }),
 
 
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation,useCategoriesUpdateMutation,useCategoriesDeleteMutation} = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation,useBrandPostMutation,useBrandUpdateMutation,useBrandDeleteMutation} = ProductControl;

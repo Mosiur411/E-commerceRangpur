@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { useCategoriesUpdateMutation } from '../../../app/features/api/ProductControl';
 
 export default function CategoryUpdate({ data: passData, SetModelHandel, modelHandel, id }) {
-  console.log(id)
   const [inputs, setInputs] = useState({});
   const [handlePath, handleChangePath] = useState();
   const [CategoriesUpdate, { isSuccess }] = useCategoriesUpdateMutation()

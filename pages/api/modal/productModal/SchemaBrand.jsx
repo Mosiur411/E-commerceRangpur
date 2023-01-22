@@ -10,21 +10,6 @@ const brand = new Schema({
         trim: true,
         required: true
     },
-    rating: {
-        type: Number,
-        trim: true,
-        required: true,
-    },
-    quantity: {
-        type: Number,
-        trim: true,
-        required: true,
-    },
-    ExtraQuantity: {
-        type: Number,
-        trim: true,
-        required: true,
-    },
     path: {
         type: String,
         trim: true,

@@ -1,5 +1,5 @@
-import SchemaBrand from "../../modal/productModal/SchemaBrand";
-import connectDatabase from "../../utils/bd";
+import SchemaBrand from "../../../modal/productModal/SchemaBrand";
+import connectDatabase from "../../../utils/bd";
 const Brand = async (req, res) => {
     try {
         await connectDatabase()
