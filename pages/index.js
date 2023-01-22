@@ -9,14 +9,8 @@ import Link from 'next/link'
 import { useBrandQuery, useCateGorQuery } from '../app/features/api/ProductControl'
 import Loading from '../components/Shared/Loading/Loading'
 export default function Home() {
-  const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
-  const { data: brand, isLoading: BandLoading } = useBrandQuery()
-  console.log(cateGories)
-
-  if (cateGoriesLoading || BandLoading) {
-    return <Loading />
-  }
-
+  const { data: cateGories, } = useCateGorQuery()
+  const { data: brand, } = useBrandQuery()
   return (
     <>
       <Head>
@@ -42,6 +36,7 @@ export default function Home() {
             <div className="hidden lg:block">
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+                  {!cateGories && <Loading />}
                   {
                     cateGories?.slice(0, 5).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
                   }
@@ -141,6 +136,8 @@ export default function Home() {
                 </div>
               </header>
               <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
+                {!brand && <Loading />}
+
                 {
                   brand?.map(data => <Brands key={data?._id} quantity={data?.quantity} ExtraQuantity={data?.ExtraQuantity} rating={data?.rating} img={data?.img} path={data?.path} />)
                 }
@@ -182,7 +179,8 @@ export default function Home() {
               </header>
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                {
+                {!cateGories && <Loading />}
+                  {
                     cateGories?.slice(0, 10).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
                   }
                 </ol>

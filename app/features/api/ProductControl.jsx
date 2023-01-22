@@ -23,7 +23,7 @@ export const ProductControl = createApi({
 
         brandProduct: builder.query({
             query: (BrandInfo) => ({
-                url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`
+                url: `api/v1/product/brandProduct/?brand=${BrandInfo?.brand}`//type=${BrandInfo?.type}&
             })
         }),
         /*  search product  */
