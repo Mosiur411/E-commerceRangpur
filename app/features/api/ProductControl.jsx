@@ -26,6 +26,11 @@ export const ProductControl = createApi({
                 url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`
             })
         }),
+        brandsProduct: builder.query({
+            query: (BrandInfo) => ({
+                url: `api/v1/product/brands/?brand=${BrandInfo?.brand}`
+            })
+        }),
         /*  search product  */
         searchProduct: builder.query({
             query: (data) => ({
@@ -130,4 +135,4 @@ export const ProductControl = createApi({
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation,useBrandPostMutation,useBrandUpdateMutation,useBrandDeleteMutation} = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation,useBrandPostMutation,useBrandUpdateMutation,useBrandDeleteMutation,useBrandsProductQuery} = ProductControl;
