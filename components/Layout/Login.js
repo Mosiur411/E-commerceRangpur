@@ -19,7 +19,6 @@ export default function Login() {
             if (email && password) {
                 /* email: admin625@gmail.com */
                 /* email: admin625@ */
-
                 signInWithEmailAndPassword(email, password)
             }
         }
