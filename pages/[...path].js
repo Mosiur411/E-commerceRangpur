@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
@@ -23,7 +24,12 @@ export default function Content() {
 
     return (
         <>
-
+            <Head>
+                <title>Product</title>
+                <meta name="description" content="Product" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
             <div className="bg-[#F1F1F1]">
                 <main className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen ">
@@ -64,35 +70,6 @@ export default function Content() {
                                     <option value="motorola">Motorola</option>
                                 </select>
                             </div>
-                            <div>
-                                <select
-                                    className="block w-full max-w-sm pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded-md shadow-sm focus:ring-2 focus:ring-primary-100 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-sm focus:border focus:border-primary-100 border-gray-300 placeholder-gray-400 focus:border-primary-100"
-                                >
-                                    <option selected="selected" value="">Series</option>
-                                </select>
-                            </div>
-                            <div>
-                                <select
-                                    className="block w-full max-w-sm pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded-md shadow-sm focus:ring-2 focus:ring-primary-100 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-sm focus:border focus:border-primary-100 border-gray-300 placeholder-gray-400 focus:border-primary-100 font-medium"
-                                >
-                                    <option value="">Sort by</option>
-                                    <option value="1">Latest</option>
-                                    <option value="2">Price</option>
-                                    <option value="3">Rating</option>
-                                    <option value="4" selected="selected">Likes</option>
-                                    <option value="5">Sales</option>
-                                    <option value="6">Views</option>
-                                </select>
-                            </div>
-                            <div>
-                                <select
-                                    className="block w-full max-w-sm pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded-md shadow-sm focus:ring-2 focus:ring-primary-100 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-sm focus:border focus:border-primary-100 border-gray-300 placeholder-gray-400 focus:border-primary-100"
-                                >
-                                    <option selected="selected" value="">Direction</option>
-                                    <option value="asc">Low to high</option>
-                                    <option value="desc">High to low</option>
-                                </select>
-                            </div>
                         </div>
                     </header>
                     <section>
@@ -108,10 +85,6 @@ export default function Content() {
                     </section>
 
                     <div className="flex flex-col items-center justify-center gap-5">
-                        <div className="space-y-1 w-full max-w-sm">
-                            <p className="text-sm text-gray-600 text-center">Showing 1 of 4 pages</p>
-                            <div className="h-1.5 bg-gray-300 rounded-md"><div className="h-full bg-primary rounded-md" ></div></div>
-                        </div>
                         <div className="flex gap-3 md:gap-x-8">
                             <div className="w-20">
                                 <select

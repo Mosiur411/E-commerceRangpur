@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useState } from "react";
 import BrandSearch from "../Shared/Search/BrandSearch";
 import CategoriesSearch from "../Shared/Search/CategoriesSearch";
-import Image from 'next/image'
 import { useSearchProductQuery } from "../../app/features/api/ProductControl";
 
 export default function Navbar() {
@@ -96,7 +95,7 @@ export default function Navbar() {
 
                 {
                     SearchData?.map(data => <div key={data?._id} className="flex justify-start items-center gap-3 cursor-pointer mb-2">
-                        <Image src={data?.img} className="rounded-full" width={40} height={40} alt="Image" />
+                        <img src={data?.img} className="rounded-full" width={40} height={40} alt="Image" />
                         <Link href={`/product/${data?.model}`} onClick={() => search_modal()}>{data?.name} </Link>
 
                     </div>)
