@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { useAdminProductAddMutation, useBrandQuery, useCateGorQuery } from '../../app/features/api/ProductControl'
-
+import HtmlDescription from '../../components/Shared/HtmlDescription';
 export default function addProduct() {
   const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
   const { data: brand, isLoading: BandLoading } = useBrandQuery()
-  console.log(cateGories)
-  console.log(brand)
   const [productAdd, { isSuccess, data }] = useAdminProductAddMutation()
-
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
@@ -15,14 +14,22 @@ export default function addProduct() {
     const value = event.target.value;
     setInputs(values => ({ ...values, [name]: value }))
   }
-
-
+  const [Description, setDescription] = useState('')
+  const [ShortDescription, setShortDescription] = useState('')
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (inputs) {
-      await productAdd(inputs)
+      if (Description && ShortDescription) {
+        const data = { ...inputs, description: Description || '', shortDescription: ShortDescription || '' }
+        await productAdd(data)
+      }
     }
   }
+  useEffect(() => {
+    if (isSuccess) {
+      toast("Product Add Success")
+    }
+  }, [isSuccess])
 
   return (
     <main>
@@ -88,7 +95,7 @@ export default function addProduct() {
                   <label htmlFor="unPrice"
                     class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                     unPrice</label>
-                  <input type="number" id='unPrice' placeholder="productModel"
+                  <input type="number" placeholder="productModel"
                     name="unPrice"
                     value={inputs.unPrice || ""}
                     onChange={handleChange}
@@ -184,22 +191,14 @@ export default function addProduct() {
               <div class="px-3 mb-6">
                 <label for="Description" class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                   Description</label>
-                <textarea type="Description" placeholder="Description your "
-                  name="description"
-                  value={inputs.description || ""}
-                  onChange={handleChange}
-                  required
-                  class="block w-full px-4 leading-tight text-gray-700 bg-gray-100 rounded dark:placeholder-gray-500 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "></textarea>
+                <HtmlDescription Description={setDescription} />
               </div>
               <div class="px-3 mb-6">
                 <label for="ShortDescription" class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                   Short Description</label>
-                <textarea type="ShortDescription" placeholder="short Description your "
-                  name="shortDescription"
-                  value={inputs.shortDescription || ""}
-                  onChange={handleChange}
-                  required
-                  class="block w-full px-4 leading-tight text-gray-700 bg-gray-100 rounded dark:placeholder-gray-500 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "></textarea>
+                <div className='bg-white' >
+                  <HtmlDescription Description={setShortDescription} />
+                </div>
               </div>
               <div class="px-3">
                 <button
@@ -211,12 +210,12 @@ export default function addProduct() {
           </div>
         </div>
       </section>
-    
 
 
 
 
-     
+
+
 
 
     </main>

@@ -1,15 +1,22 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { useEffect } from 'react'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { useAdminDeletePostMutation, useAdminGetProductQuery, useBrandQuery, useCateGorQuery } from '../../app/features/api/ProductControl'
 import ProductUpdate from '../../components/Pages/Dashboard/ProductUpdate'
 
 export default function index() {
   const [FilterInput, serFilterInput] = useState("phone")
+  console.log(FilterInput)
   const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
   const { data } = useAdminGetProductQuery(FilterInput)
-  const [removeProduct] = useAdminDeletePostMutation()
+  const [removeProduct, { isSuccess }] = useAdminDeletePostMutation()
+  useEffect(() => {
+    if (isSuccess) {
+      toast("Delete Product ")
+    }
+  }, [isSuccess])
 
 
   /*  update handel */
@@ -51,10 +58,10 @@ export default function index() {
               data?.map(data => <tr className="hover:bg-gray-50">
                 <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div className="relative h-10 w-10">
-                    <Image
+                    <img
                       className="h-full w-full rounded-full object-cover object-center"
                       src={data?.img}
-                      alt="" width={100} height={100}
+                      alt="No Images" width={100} height={100}
                     />
                     <span className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
                   </div>

@@ -6,7 +6,8 @@ import { useProductIDQuery } from "../../app/features/api/ProductControl"
 export default function Product() {
     const router = useRouter()
     const model = router.query.id
-    const { data} = useProductIDQuery(model)
+    const { data } = useProductIDQuery(model)
+    console.log(data)
     return (
         <div className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen ">
             <div className="grid md:grid-cols-2 lg:grid-cols-9 gap-6 bg-white border rounded-md p-3 py-8 mt-3">
@@ -14,14 +15,14 @@ export default function Product() {
                     <div>
                         <div className="flex flex-col items-center space-y-5">
                             <div className="flex items-center justify-center overflow-hidden">
-                                <Image src={data?.img}   width='400' height="100" alt="img"/>
+                                <Image src={data?.img} width='400' height="100" alt="img" />
                             </div>
                             <div className="grid grid-cols-4 gap-2 max-w-sm items-center">
                                 <div>
-                                     <Image src={data?.img} className="w-20" width='100' height="100" alt="img"/>
+                                    <Image src={data?.img} className="w-20" width='100' height="100" alt="img" />
                                 </div>
                                 <div>
-                                     <Image src={data?.img} className="w-20" width='100' height="100" alt="img"/>
+                                    <Image src={data?.img} className="w-20" width='100' height="100" alt="img" />
                                 </div>
                             </div>
                         </div>
@@ -52,7 +53,7 @@ export default function Product() {
                         <div className="space-y-2 mt-4"><p>Order Nokia 6.1 Plus X6 from Price in Kenya with fast delivery across the country and in-store pickup in Nairobi.</p></div>
                     </header>
                     <Link href="/brand/nokia" className=" flex items-start w-max" title="All Nokia products">
-                         <Image src="https://api.priceinkenya.com/media/126750/conversions/nokia-logo-original.webp" className="w-20" width='100' height="100" alt="img"/>
+                        <Image src="https://api.priceinkenya.com/media/126750/conversions/nokia-logo-original.webp" className="w-20" width='100' height="100" alt="img" />
                     </Link>
                     <div className="space-y-3">
                         <h2 className="font-medium leading-tight text-base max-w-full">
@@ -60,7 +61,7 @@ export default function Product() {
                                 Featured specifications for Nokia 6.1 Plus X6
                             </span>
                         </h2>
-                        <dl>
+                        {/*       <dl>
                             <div className="px-2 py-2 flex gap-2 bg-cool-gray-500 rounded">
                                 <dt className="font-medium whitespace-nowrap">Available</dt>
                                 <dd className="line-clamp-1">May, 2018</dd>
@@ -101,7 +102,7 @@ export default function Product() {
                                 <dt className="font-medium whitespace-nowrap">Battery</dt>
                                 <dd className="line-clamp-1">3060mAh, Li-Ion</dd>
                             </div>
-                        </dl>
+                        </dl> */}
                     </div>
                 </div>
                 <div className="lg:col-span-2 h-full space-y-5 overflow-hidden">
@@ -145,7 +146,7 @@ export default function Product() {
                         </ul>
                         <hr />
                         <div className="flex space-x-5 items-center">
-                             <Image alt="home page" height="20" src="/_nuxt/6653b9d300ec411af54d8ed138e9e9b4.svg" width="20" className="text-transparent" />
+                            <Image alt="home page" height="20" src="/_nuxt/6653b9d300ec411af54d8ed138e9e9b4.svg" width="20" className="text-transparent" />
                             <address>
                                 <Link href="https://g.page/r/CYlWdPoEKvZDEAE" rel="external nofollow noopener noreferrer" target="_blank" title="Find us on Google Maps!" className="hover:underline">
                                     Bihi Towers, Ground Floor, Suite G8, Moi Avenue, Nairobi CBD.
@@ -157,15 +158,15 @@ export default function Product() {
                         </div>
                         <div className="flex flex-wrap gap-2">
                             <Link href="https://apps.apple.com/ke/app/price-in-kenya/id1581082296" title="Apple App Store" rel="external nofollow noopener noreferrer" target="_blank">
-                                 <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" width='100' height="100" alt="img" />
+                                <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" width='100' height="100" alt="img" />
                             </Link>
                             <Link href="https://play.google.com/store/apps/details?id=com.price_in_kenya" title="Google Play Store" rel="external nofollow noopener noreferrer" target="_blank">
-                                 <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" width='100' height="100" alt="img"/>
+                                <Image src="https://api.priceinkenya.com/media/126935/conversions/play-store-original.webp" className="w-20" width='100' height="100" alt="img" />
                             </Link>
                         </div>
                     </aside>
                 </div>
-                <div className="lg:col-span-4 lg:col-start-4 h-full space-y-2 overflow-hidden">
+                {/* <div className="lg:col-span-4 lg:col-start-4 h-full space-y-2 overflow-hidden">
                     <h2 className="font-medium leading-tight text-base max-w-full">Nokia 6.1 Plus X6 key features</h2>
                     <ul className="divide-y divide-gray-300">
                         <li className="py-0.5"><p className="line-clamp-1">16MP dual camera</p></li>
@@ -175,7 +176,7 @@ export default function Product() {
                         <li className="py-0.5"><p className="line-clamp-1">USB Type C</p></li>
                         <li className="py-0.5"><p className="line-clamp-1">Fast charging</p></li>
                     </ul>
-                </div>
+                </div> */}
                 <aside className="lg:col-span-2 h-full space-y-2 overflow-hidden">
                     <p className="font-medium leading-tight text-base max-w-full">How to pay</p>
                     <p>
@@ -184,6 +185,12 @@ export default function Product() {
                         Account no. 794794
                     </p>
                 </aside>
+            </div>
+
+
+            {/*  ============= ds=========== */}
+            <div>
+                {data?.description}
             </div>
 
 

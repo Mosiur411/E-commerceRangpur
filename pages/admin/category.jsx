@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useCategoriesDeleteMutation, useCategoriesPostMutation, useCateGorQuery } from '../../app/features/api/ProductControl'
 import CategoryUpdate from '../../components/Pages/Dashboard/CategoryUpdate'
@@ -9,12 +10,7 @@ export default function category() {
   const [categoryAdd, setCategoryAdd] = useState(false)
   const [addCategory, { isSuccess }] = useCategoriesPostMutation()
   const { data: cateGoriesGet, isLoading: cateGoriesLoading } = useCateGorQuery()
-  const [removeCategory] = useCategoriesDeleteMutation()
-
-  if (isSuccess) {
-    toast("Success");
-  }
-
+  const [removeCategory, { isSuccess: DeleteSuccess }] = useCategoriesDeleteMutation()
 
   const handelCategory = () => {
     if (categoryAdd) {
@@ -65,15 +61,15 @@ export default function category() {
       setUpdateDataPass(filterData)
       SetModelHandel(!modelHandel)
     }
-
-
-
-
   }
-
-
-
-
+  useEffect(() => {
+    if (isSuccess) {
+      toast("Add Category");
+    }
+    if (DeleteSuccess) {
+      toast("Delete");
+    }
+  }, [isSuccess, DeleteSuccess])
   return (
     <main>
       {/* category type    */}

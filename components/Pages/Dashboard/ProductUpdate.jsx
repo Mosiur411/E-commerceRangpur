@@ -1,23 +1,35 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { toast } from 'react-toastify'
 import { useAdminProductUpdateMutation, useBrandQuery, useCateGorQuery } from '../../../app/features/api/ProductControl'
+import HtmlDescription from '../../Shared/HtmlDescription'
 export default function ProductUpdate({ data: passData, SetModelHandel, modelHandel }) {
     const { data: brand, isLoading: BandLoading } = useBrandQuery()
     const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
-    const [UpdateProduct] = useAdminProductUpdateMutation()
+    const [UpdateProduct, { isSuccess }] = useAdminProductUpdateMutation()
     const [inputs, setInputs] = useState({});
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }))
     }
+    const [Description, setDescription] = useState('')
+    const [ShortDescription, setShortDescription] = useState('')
     const handleSubmit = (event) => {
         event.preventDefault();
         if (inputs && passData) {
-            const data = { ...inputs, id: passData?._id }
+            const data = { ...inputs, id: passData?._id, description: passData?.description || Description, shortDescription: passData?.shortDescription || ShortDescription }
             UpdateProduct(data)
         }
+        Description
     }
+    useEffect(() => {
+        if (isSuccess) {
+            toast("update Success")
+        }
+    }, [isSuccess])
+
     return (
         <section className="w-full h fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity 50">
             <main className='w-full flex justify-center items-center  '>
@@ -178,22 +190,12 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                             <div class=" mb-6">
                                 <label for="Description" class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                                     Description</label>
-                                <textarea type="Description" placeholder="Description your "
-                                    name="description"
-                                    value={inputs.description || passData?.description}
-                                    onChange={handleChange}
-                                    required
-                                    class="block w-full px-4 leading-tight text-gray-700 bg-gray-100 rounded dark:placeholder-gray-500 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "></textarea>
+                                <HtmlDescription Description={setDescription} />
                             </div>
                             <div class=" mb-6">
                                 <label for="ShortDescription" class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                                     Short Description</label>
-                                <textarea type="ShortDescription" placeholder="short Description your "
-                                    name="shortDescription"
-                                    value={inputs.shortDescription || passData?.shortDescription}
-                                    onChange={handleChange}
-                                    required
-                                    class="block w-full px-4 leading-tight text-gray-700 bg-gray-100 rounded dark:placeholder-gray-500 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "></textarea>
+                                <HtmlDescription Description={setShortDescription} />
                             </div>
                             <div class="">
                                 <button

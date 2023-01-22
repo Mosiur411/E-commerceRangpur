@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import { useCategoriesUpdateMutation } from '../../../app/features/api/ProductControl';
@@ -8,9 +9,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
   const [inputs, setInputs] = useState({});
   const [handlePath, handleChangePath] = useState();
   const [CategoriesUpdate, { isSuccess }] = useCategoriesUpdateMutation()
-  if (isSuccess) {
-    toast('Success  Update')
-  }
+
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -18,11 +17,16 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
   }
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (inputs) {
+    if (Object.keys(inputs).length >= 1) {
       const data = { ...inputs, id: passData?._id }
       await CategoriesUpdate(data)
     }
   }
+  useEffect(() => {
+    if (isSuccess) {
+      toast('Success  Update')
+    }
+  }, [isSuccess])
   return (
     <section className="w-full h fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity 50">
       <main className='w-full flex justify-center items-center  '>

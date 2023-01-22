@@ -1,9 +1,7 @@
 import React from 'react'
-import { AiOutlineHome, AiFillSetting, AiOutlineUsergroupAdd } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { MdManageAccounts } from "react-icons/md";
-import { IoIosColorPalette } from "react-icons/io";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { useRouter } from 'next/router';
 export default function Sidebar() {
@@ -13,8 +11,6 @@ export default function Sidebar() {
             <main className="min-w-fit p-5 shadow-2xl rounded-sm flex flex-col justify-between h-[93.1vh] ">
                 {/* ================ menu styles ============  */}
                 <section className="flex flex-col gap-4">
-                    {/* admin control  website  start*/}
-                    {/* admin control  website   ent */}
                     <div onClick={() => router.push('/admin')} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white" >
                         <AiOutlineHome size={20} />
                         <span className="text-[20px]"> Dashboard</span>
@@ -27,23 +23,10 @@ export default function Sidebar() {
                         <AiOutlineUsergroupAdd size={20} />
                         <span className="text-[20px]">Category </span>
                     </div>
-                    <div  onClick={() => router.push('/admin/brand')} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
+                    <div onClick={() => router.push('/admin/brand')} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
                         <RiSendPlaneFill size={20} />
                         <span className="text-[20px]">Brand</span>
                     </div>
-                    <div onClick={() => router.push('/UserDetails/userProfile')} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
-                        <MdManageAccounts size={20} />
-                        <span className="text-[20px] ">Profile</span>
-                    </div>
-                    <div className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
-                        <AiFillSetting size={20} />
-                        <span className="text-[20px] cursor-pointer">Setting</span>
-                    </div>
-                    <div className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
-                        <IoIosColorPalette size={20} />
-                        <span className="text-[20px]">Theme</span>
-                    </div>
-
                     <div onClick={() => setDelete(!Delete)} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
                         <FiLogOut size={20} />
                         <span className="text-[20px]">Log out</span>

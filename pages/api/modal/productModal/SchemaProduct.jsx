@@ -28,8 +28,10 @@ const product = new Schema({
     },
     unPrice: {
         type: Number,
-        default: '0',
         trim: true,
+        default: '0',
+        required:false
+        
     },
     inStock: {
         type: Number,
