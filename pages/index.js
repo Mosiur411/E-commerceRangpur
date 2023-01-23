@@ -11,6 +11,7 @@ import Loading from '../components/Shared/Loading/Loading'
 export default function Home() {
   const { data: cateGories, } = useCateGorQuery()
   const { data: brand, } = useBrandQuery()
+
   return (
     <>
       <Head>
@@ -179,7 +180,7 @@ export default function Home() {
               </header>
               <div className="bg-white border py-8 rounded-md">
                 <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-sm">
-                {!cateGories && <Loading />}
+                  {!cateGories && <Loading />}
                   {
                     cateGories?.slice(0, 10).map(data => <PopularCategories key={data?._id} img={data?.img} title={data?.title} quantity={data?.stock} extraQuantity={data?.extraStock} path={data.path} />)
                   }
