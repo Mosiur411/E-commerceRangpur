@@ -3,7 +3,7 @@ import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-export default function HtmlDescription({ Description }) {
+export default function HtmlDescription({ Description, passData }) {
     const { quill, quillRef } = useQuill();
     const [value, setValue] = useState();
 

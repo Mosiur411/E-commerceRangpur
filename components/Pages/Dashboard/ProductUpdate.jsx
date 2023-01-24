@@ -11,7 +11,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
     const [inputs, setInputs] = useState({});
     const handleChange = (event) => {
         const name = event.target.name;
-        const value = event.target.value;
+        const value = event.target.defaultValue;
         setInputs(values => ({ ...values, [name]: value }))
     }
     const [Description, setDescription] = useState('')
@@ -22,14 +22,14 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
             const data = { ...inputs, id: passData?._id, description: passData?.description || Description, shortDescription: passData?.shortDescription || ShortDescription }
             UpdateProduct(data)
         }
-        
+
     }
     useEffect(() => {
         if (isSuccess) {
             toast("update Success")
         }
     }, [isSuccess])
-
+    console.log(passData)
     return (
         <section className="w-full h fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity 50">
             <main className='w-full flex justify-center items-center  '>
@@ -45,7 +45,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                     </label>
                                     <input type="text" id='Title' placeholder="productTitle"
                                         name="name"
-                                        value={inputs.name || passData?.name}
+                                        defaultValue={inputs.name || passData?.name}
                                         onChange={handleChange}
                                         required
                                         class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
@@ -56,7 +56,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         Model</label>
                                     <input type="text" id='Model' placeholder="productModel"
                                         name="model"
-                                        value={inputs.model || passData?.model}
+                                        defaultValue={inputs.model || passData?.model}
                                         onChange={handleChange}
 
                                         required
@@ -67,7 +67,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         Images URL</label>
                                     <input type="text" placeholder="url" id='images'
                                         name="img"
-                                        value={inputs.img || passData?.img}
+                                        defaultValue={inputs.img || passData?.img}
                                         onChange={handleChange}
 
                                         required
@@ -83,7 +83,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                     </label>
                                     <input type="number" id='Title' placeholder="price"
                                         name="price"
-                                        value={inputs.price || passData?.price}
+                                        defaultValue={inputs.price || passData?.price}
                                         onChange={handleChange}
                                         required
                                         class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
@@ -94,7 +94,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         unPrice</label>
                                     <input type="number" id='unPrice' placeholder="productModel"
                                         name="unPrice"
-                                        value={inputs.unPrice || passData?.unPrice}
+                                        defaultValue={inputs.unPrice || passData?.unPrice}
                                         onChange={handleChange}
                                         class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
                                 </div>
@@ -104,7 +104,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         IN STOCK</label>
                                     <input type="number" id='inStock' placeholder="productModel"
                                         name="inStock"
-                                        value={inputs.inStock || passData?.inStock}
+                                        defaultValue={inputs.inStock || passData?.inStock}
                                         onChange={handleChange}
                                         required
                                         class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
@@ -122,12 +122,14 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                     <div>
                                         <select className="block w-full max-w-sm pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded-md shadow-sm focus:ring-2 focus:ring-primary-100 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-sm focus:border focus:border-primary-100 border-gray-300 placeholder-gray-400 focus:border-primary-100"
                                             name="type"
-                                            value={inputs.type || ""}
+                                            defaultValue={inputs.type || ""}
                                             onChange={handleChange}
                                             required
+                                            id="type"
                                         >
+                                            <option defaultValue={passData?.type} className='uppercase'>{passData?.type}</option>
                                             {
-                                                cateGories?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                                                cateGories?.map(data => <option defaultValue={data?.path} className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>
@@ -141,12 +143,13 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                     <div>
                                         <select className="block w-full max-w-sm pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded-md shadow-sm focus:ring-2 focus:ring-primary-100 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-sm focus:border focus:border-primary-100 border-gray-300 placeholder-gray-400 focus:border-primary-100"
                                             name="subCategory"
-                                            value={inputs.subCategory || ""}
+                                            defaultValue={inputs.subCategory || ""}
                                             onChange={handleChange}
                                             required
                                         >
+                                            <option defaultValue={passData?.subCategory} className='uppercase'>{passData?.subCategory}</option>
                                             {
-                                                cateGories?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                                                cateGories?.map(data => <option defaultValue={data?.path} selected className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>
@@ -160,12 +163,13 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                     <div>
                                         <select className="block w-full max-w-sm pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded-md shadow-sm focus:ring-2 focus:ring-primary-100 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-sm focus:border focus:border-primary-100 border-gray-300 placeholder-gray-400 focus:border-primary-100"
                                             name="brand"
-                                            value={inputs.brand || ""}
+                                            defaultValue={inputs.brand || ""}
                                             onChange={handleChange}
                                             required
                                         >
+                                            <option defaultValue={passData?.brand} className='uppercase'>{passData?.brand}</option>
                                             {
-                                                brand?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                                                brand?.map(data => <option defaultValue={data?.path} selected className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>
@@ -190,12 +194,12 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                             <div class=" mb-6">
                                 <label for="Description" class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                                     Description</label>
-                                <HtmlDescription Description={setDescription} />
+                                <HtmlDescription Description={setDescription} passData={passData?.description} />
                             </div>
                             <div class=" mb-6">
                                 <label for="ShortDescription" class="block mb-2 font-bold text-gray-700 uppercase dark:text-gray-400">
                                     Short Description</label>
-                                <HtmlDescription Description={setShortDescription} />
+                                <HtmlDescription Description={setShortDescription} passData={passData?.shortDescription} />
                             </div>
                             <div class="">
                                 <button

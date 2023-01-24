@@ -6,7 +6,7 @@ export const ProductControl = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: URL
     }),
-    tagTypes: ['ProductData', "ProductID", "Brand", "Categories", "Admin"],
+    tagTypes: ['ProductData', "ProductID", "Brand", "Categories", "Admin", "Home"],
     endpoints: (builder) => ({
         productGet: builder.query({
             query: (filterInfo) => ({
@@ -106,7 +106,7 @@ export const ProductControl = createApi({
             }),
             providesTags: ['Brand'],
         }),
-        brandPost:builder.mutation({
+        brandPost: builder.mutation({
             query: (data) => ({
                 url: `api/v1/admin/brand/postBrand`,
                 method: "POST",
@@ -130,9 +130,42 @@ export const ProductControl = createApi({
             }),
             invalidatesTags: ['Brand'],
         }),
+        /* ========================= home pages control ================= */
+        home: builder.query({
+            query: () => ({
+                url: `api/v1/admin/home`,//get data
+            }),
+            providesTags: ['Home'],
+        }),
+        homePost: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/home/homePost`,
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ['Home'],
+        }),
+        homeDelete: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/home/homeDelete`,
+                method: "DELETE",
+                body: data,
+            }),
+            invalidatesTags: ['Home'],
+        }),
+        homeUpdate: builder.mutation({
+            query: (data) => ({
+                url: `api/v1/admin/home/homeUpdate`,
+                method: "PUT",
+                body: data,
+            }),
+            invalidatesTags: ['Home'],
+        }),
+
+
 
 
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation,useBrandPostMutation,useBrandUpdateMutation,useBrandDeleteMutation,useBrandsProductQuery} = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation, useBrandPostMutation, useBrandUpdateMutation, useBrandDeleteMutation, useBrandsProductQuery, useHomePostMutation, useHomeDeleteMutation,useHomeQuery,useHomeUpdateMutation } = ProductControl;

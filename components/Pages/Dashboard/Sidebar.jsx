@@ -37,6 +37,10 @@ export default function Sidebar() {
                         <RiSendPlaneFill size={20} />
                         <span className="text-[20px]">Brand</span>
                     </div>
+                    <div onClick={() => router.push('/admin/homeporductadd')} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
+                        <RiSendPlaneFill size={20} />
+                        <span className="text-[20px]">HomeProductType</span>
+                    </div>
                     <div onClick={() => signOut()} className="flex gap-5 items-center cursor-pointer hover:bg-gray-500 rounded px-2 py-1 hover:text-white">
                         <FiLogOut size={20} />
                         <span className="text-[20px]">Log out</span>

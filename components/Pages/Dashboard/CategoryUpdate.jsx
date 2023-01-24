@@ -11,7 +11,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
 
   const handleChange = (event) => {
     const name = event.target.name;
-    const value = event.target.value;
+    const value = event.target.defaultValue;
     setInputs(values => ({ ...values, [name]: value }))
   }
   const handleSubmit = async (event) => {
@@ -42,7 +42,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
                   </label>
                   <input type="text" id='Title' placeholder="productTitle"
                     name="title"
-                    value={inputs.title || passData?.title}
+                    defaultValue={inputs.title || passData?.title}
                     onChange={handleChange}
                     required
                     class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
@@ -53,7 +53,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
                     Path</label>
                   <input type="text" className='lowercase' id='path'
                     name="path"
-                    value={passData?.path || ''}
+                    defaultValue={passData?.path || ''}
                     onChange={(e) => handleChangePath(e.target.value)}
                     required
                     class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
@@ -64,7 +64,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
                   Images URL</label>
                 <input type="text" placeholder="url" id='images'
                   name="img"
-                  value={inputs.img || passData?.img}
+                  defaultValue={inputs.img || passData?.img}
                   onChange={handleChange}
 
                   required
@@ -78,7 +78,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
                   </label>
                   <input type="number" id='Stock' placeholder="Stock"
                     name="stock"
-                    value={inputs.stock || passData?.stock}
+                    defaultValue={inputs.stock || passData?.stock}
                     onChange={handleChange}
                     required
                     class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
@@ -89,7 +89,7 @@ export default function CategoryUpdate({ data: passData, SetModelHandel, modelHa
                     ExtraStock</label>
                   <input type="number" id='extraStock' placeholder="extraStock"
                     name="extraStock"
-                    value={inputs.extraStock || passData?.extraStock}
+                    defaultValue={inputs.extraStock || passData?.extraStock}
                     onChange={handleChange}
                     class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 " />
                 </div>

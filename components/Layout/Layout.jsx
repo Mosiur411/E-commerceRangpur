@@ -71,6 +71,19 @@ export default function Layout({ children }) {
             </div>
 
         </div>
+    } else if (dashboard === '/admin/homeporductadd') {
+        content = <div >
+            <AdminNavbar />
+            <div className="flex">
+                <div>
+                    <Sidebar />
+                </div>
+                <div className="flex-1 ">
+                    <main>{children}</main>
+                </div>
+            </div>
+
+        </div>
     }
     else {
         content = <div>
