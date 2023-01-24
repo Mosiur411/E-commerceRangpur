@@ -85,7 +85,7 @@ export default function HomeUpdate({ data: passData, SetModelHandel, modelHandel
                                         >
                                             <option value={passData?.type} selected className='uppercase'>{passData?.type}</option>
                                             {
-                                                cateGories?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                                                cateGories?.map(data => <option key={data?._id} value={data?.path} selected className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>

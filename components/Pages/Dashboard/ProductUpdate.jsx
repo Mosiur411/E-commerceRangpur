@@ -129,7 +129,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         >
                                             <option defaultValue={passData?.type} className='uppercase'>{passData?.type}</option>
                                             {
-                                                cateGories?.map(data => <option defaultValue={data?.path} className='uppercase'>{data?.path}</option>)
+                                                cateGories?.map(data => <option key={data?._id} defaultValue={data?.path} className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>
@@ -149,7 +149,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         >
                                             <option defaultValue={passData?.subCategory} className='uppercase'>{passData?.subCategory}</option>
                                             {
-                                                cateGories?.map(data => <option defaultValue={data?.path} selected className='uppercase'>{data?.path}</option>)
+                                                cateGories?.map(data => <option key={data?._id} defaultValue={data?.path} selected className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>
@@ -169,7 +169,7 @@ export default function ProductUpdate({ data: passData, SetModelHandel, modelHan
                                         >
                                             <option defaultValue={passData?.brand} className='uppercase'>{passData?.brand}</option>
                                             {
-                                                brand?.map(data => <option defaultValue={data?.path} selected className='uppercase'>{data?.path}</option>)
+                                                brand?.map(data => <option key={data?._id} defaultValue={data?.path} selected className='uppercase'>{data?.path}</option>)
                                             }
 
                                         </select>

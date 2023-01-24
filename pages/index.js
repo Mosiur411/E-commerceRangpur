@@ -56,7 +56,7 @@ export default function Home() {
           </section>
           <header className="my-1 mt-5">
             {
-              home?.results?.map((data) => <div>
+              home?.results?.map((data) => <div key={data?._id}>
                 <h1 className="text-2xl font-medium leading-tight max-w-full">{data?.title}</h1>
                 <p className="text-sm text-gray-700">{data?.distinction}</p>
               </div>)
@@ -65,7 +65,7 @@ export default function Home() {
           </header>
           <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
             {
-              home?.result?.map((data) => <Featured img={data?.img} title={data?.title} model={data?.model} />)
+              home?.result?.map((data) => <Featured key={data?.key} img={data?.img} title={data?.title} model={data?.model} />)
             }
 
           </ul>

@@ -14,7 +14,7 @@ export default function HtmlDescription({ Description, passData }) {
                 setValue(quillRef.current.firstChild.innerHTML)
             });
         }
-    }, [quill]);
+    }, [quill,quillRef]);
     if (value) {
         Description(value)
     }
