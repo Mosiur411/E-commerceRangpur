@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { useBrandDeleteMutation, useBrandPostMutation, useBrandQuery, useCategoriesDeleteMutation} from '../../app/features/api/ProductControl'
 import BrandUpdate from '../../components/Pages/Dashboard/BrandUpdate'
 
-export default function brand() {
+export default function Brand() {
   const [show, setShow] = useState(true)
   const [categoryAdd, setCategoryAdd] = useState(false)
   const [brandPost, { isSuccess }] = useBrandPostMutation()
@@ -97,7 +97,7 @@ export default function brand() {
                 </thead>
                 <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                   {
-                    brand?.map(data => <tr className="hover:bg-gray-50">
+                    brand?.map(data => <tr key={data?._id} className="hover:bg-gray-50">
                       <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                         <div className="relative h-10 w-10">
                           <img

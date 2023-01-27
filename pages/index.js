@@ -3,11 +3,11 @@ import Featured from '../components/Pages/Product/Featured'
 import Brands from '../components/Pages/Product/Brands'
 import PopularCategories from '../components/Pages/Product/PopularCategories'
 import Link from 'next/link'
-import { useBrandQuery, useCateGorQuery, useHomeQuery } from '../app/features/api/ProductControl'
+import { useBrandQuery,  useCateGorQuery,  useHomeQuery } from '../app/features/api/ProductControl'
 import Loading from '../components/Shared/Loading/Loading'
 export default function Home() {
-  const { data: cateGories, } = useCateGorQuery()
-  const { data: brand, } = useBrandQuery()
+  const { data: cateGories } = useCateGorQuery()
+  const { data: brand } = useBrandQuery()
   const { data: home } = useHomeQuery()
   return (
     <>

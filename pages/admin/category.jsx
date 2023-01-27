@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { useCategoriesDeleteMutation, useCategoriesPostMutation, useCateGorQuery } from '../../app/features/api/ProductControl'
 import CategoryUpdate from '../../components/Pages/Dashboard/CategoryUpdate'
 
-export default function category() {
+export default function Category() {
   const [show, setShow] = useState(true)
   const [categoryAdd, setCategoryAdd] = useState(false)
   const [addCategory, { isSuccess }] = useCategoriesPostMutation()
@@ -96,7 +96,7 @@ export default function category() {
                 </thead>
                 <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                   {
-                    cateGoriesGet?.map(data => <tr className="hover:bg-gray-50">
+                    cateGoriesGet?.map(data => <tr key={data?._id} className="hover:bg-gray-50">
                       <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                         <div className="relative h-10 w-10">
                           <Image

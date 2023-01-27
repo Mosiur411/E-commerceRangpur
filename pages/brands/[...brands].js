@@ -11,7 +11,9 @@ export default function Brands() {
     const BrandInfo = {
         brand: path[0]
     }
-    useEffect(() => { }, [path])
+
+
+    
     const { data } = useBrandsProductQuery(BrandInfo)
     return (
         <main className="px-2 text-gray-800 max-w-screen-xl mx-auto min-h-screen">

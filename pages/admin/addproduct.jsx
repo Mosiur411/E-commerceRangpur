@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useAdminProductAddMutation, useBrandQuery, useCateGorQuery } from '../../app/features/api/ProductControl'
 import HtmlDescription from '../../components/Shared/HtmlDescription';
-export default function addProduct() {
-  const { data: cateGories, isLoading: cateGoriesLoading } = useCateGorQuery()
-  const { data: brand, isLoading: BandLoading } = useBrandQuery()
+export default function AddProduct() {
+  const { data: cateGories} = useCateGorQuery()
+  const { data: brand} = useBrandQuery()
   const [productAdd, { isSuccess, data }] = useAdminProductAddMutation()
   const [inputs, setInputs] = useState({});
 
@@ -117,7 +117,7 @@ export default function addProduct() {
                       required
                     >
                       {
-                        cateGories?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                        cateGories?.map(data => <option key={data?._id} value={data?.path} selected className='uppercase'>{data?.path}</option>)
                       }
 
                     </select>
@@ -136,7 +136,7 @@ export default function addProduct() {
                       required
                     >
                       {
-                        cateGories?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                        cateGories?.map(data => <option  key={data?._id} value={data?.path} selected className='uppercase'>{data?.path}</option>)
                       }
 
                     </select>
@@ -159,7 +159,7 @@ export default function addProduct() {
                       required
                     >
                       {
-                        brand?.map(data => <option value={data?.path} selected className='uppercase'>{data?.path}</option>)
+                        brand?.map(data => <option key={data?._id} value={data?.path} selected className='uppercase'>{data?.path}</option>)
                       }
 
                     </select>
