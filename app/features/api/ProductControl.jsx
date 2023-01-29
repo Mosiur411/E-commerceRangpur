@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const URL = 'http://localhost:3000/';
-// const URL = 'https://e-commerce-rangpur.vercel.app/';
+// const URL = 'http://localhost:3000/';
+const URL = 'https://e-commerce-rangpur.vercel.app/';
 export const ProductControl = createApi({
     reducerPath: "Product",
     baseQuery: fetchBaseQuery({
@@ -21,16 +21,24 @@ export const ProductControl = createApi({
             providesTags: ['ProductID'],
         }),
 
-        brandProduct: builder.query({
+        brandProduct: builder.mutation({
             query: (BrandInfo) => ({
-                url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`
+                url: `api/v1/product/brandProduct/?type=${BrandInfo?.type}&brand=${BrandInfo?.brand}`,
+                method:'GET'
             })
         }),
-        brandsProduct: builder.query({
+        brandsProduct: builder.mutation({
             query: (BrandInfo) => ({
-                url: `api/v1/product/brands/?brand=${BrandInfo?.brand}`
+                url: `api/v1/product/brands/?brand=${BrandInfo?.brand}`,
+                method:'GET'
+
             })
         }),
+        // brandsProduct: builder.query({
+        //     query: (BrandInfo) => ({
+        //         url: `api/v1/product/brands/?brand=${BrandInfo?.brand}`
+        //     })
+        // }),
         /*  search product  */
         searchProduct: builder.query({
             query: (data) => ({
@@ -168,4 +176,4 @@ export const ProductControl = createApi({
 
     })
 })
-export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useBrandProductQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation, useBrandPostMutation, useBrandUpdateMutation, useBrandDeleteMutation, useBrandsProductQuery, useHomePostMutation, useHomeDeleteMutation,useHomeQuery,useHomeUpdateMutation } = ProductControl;
+export const { useProductGetQuery, useProductIDQuery, useBrandQuery, useCateGorQuery, useSearchProductQuery, useAdminGetProductQuery, useAdminDeletePostMutation, useAdminProductAddMutation, useAdminProductUpdateMutation, useCategoriesPostMutation, useCategoriesUpdateMutation, useCategoriesDeleteMutation, useBrandPostMutation, useBrandUpdateMutation, useBrandDeleteMutation, useHomePostMutation, useHomeDeleteMutation, useHomeQuery, useHomeUpdateMutation,useBrandsProductMutation,useBrandProductMutation } = ProductControl;

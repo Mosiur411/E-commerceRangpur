@@ -14,13 +14,13 @@ export default function HtmlDescription({ Description, passData }) {
                 setValue(quillRef.current.firstChild.innerHTML)
             });
         }
-    }, [quill,quillRef]);
+    }, [quill, quillRef]);
     if (value) {
         Description(value)
     }
     return (
         <div className='bg-white'>
-            <div ref={quillRef} />
+            <textarea ref={quillRef}>{passData}</textarea>
         </div>
     )
 }

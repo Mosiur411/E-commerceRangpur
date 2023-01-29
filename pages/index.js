@@ -3,7 +3,7 @@ import Featured from '../components/Pages/Product/Featured'
 import Brands from '../components/Pages/Product/Brands'
 import PopularCategories from '../components/Pages/Product/PopularCategories'
 import Link from 'next/link'
-import { useBrandQuery,  useCateGorQuery,  useHomeQuery } from '../app/features/api/ProductControl'
+import { useBrandQuery, useCateGorQuery, useHomeQuery } from '../app/features/api/ProductControl'
 import Loading from '../components/Shared/Loading/Loading'
 export default function Home() {
   const { data: cateGories } = useCateGorQuery()
@@ -56,19 +56,24 @@ export default function Home() {
           </section>
           <header className="my-1 mt-5">
             {
-              home?.results?.map((data) => <div key={data?._id}>
-                <h1 className="text-2xl font-medium leading-tight max-w-full">{data?.title}</h1>
-                <p className="text-sm text-gray-700">{data?.distinction}</p>
-              </div>)
+              home?.results
+                ?.map((data) => {
+                  return (
+                    <>
+                      <div key={data?._id}>
+                        <h1 className="text-2xl font-medium leading-tight max-w-full">{data?.title}</h1>
+                        <p className="text-sm text-gray-700">{data?.distinction}</p>
+                      </div>
+                      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
+                        <Featured key={data?.key} img={data?.img} title={data?.title} model={data?.model} />
+                      </ul>
+                    </>
+                  )
+                }
+                )
             }
 
           </header>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-2.5 bg-white border rounded-md py-5">
-            {
-              home?.result?.map((data) => <Featured key={data?.key} img={data?.img} title={data?.title} model={data?.model} />)
-            }
-
-          </ul>
 
 
           <div className="space-y-6 mt-6">

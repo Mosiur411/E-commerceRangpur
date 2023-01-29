@@ -9,7 +9,6 @@ export default function Content() {
     const [brand, setBrand] = useState()
     const [limit, setLimit] = useState(10)
     const [page, setPage] = useState(0)
-    console.log(page, limit)
     const router = useRouter()
     const path = router.query.path
     const pathName = path?.join('/')
