@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const URL = 'http://localhost:3000/';
+// const URL = 'https://homekaaz.com/';
+const URL = 'https://e-commerce-rangpur.vercel.app/';
 // const URL = 'https://e-commercerangpur-production.up.railway.app/';
 export const ProductControl = createApi({
     reducerPath: "Product",
