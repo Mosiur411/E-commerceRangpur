@@ -17,8 +17,12 @@ export default function Login() {
             const email = inputs?.email
             const password = inputs?.password
             if (email && password) {
-                /* email: admin625@gmail.com */
-                /* email: admin625@ */
+                /* 
+                website : https://e-commerce-rangpur.vercel.app/ 
+                code : https://drive.google.com/file/d/1LMiJ49tfe-wzYf405wdiQEylk8_rmGWl/view?usp=sharing
+                email: admin625@gmail.com
+                password: admin625@
+                 */
                 signInWithEmailAndPassword(email, password)
             }
         }

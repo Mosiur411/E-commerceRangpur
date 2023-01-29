@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'

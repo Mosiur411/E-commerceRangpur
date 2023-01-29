@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useProductIDQuery } from "../../app/features/api/ProductControl"
@@ -88,14 +87,14 @@ export default function Product() {
                         <div>
                             <div className="flex flex-col items-center space-y-5">
                                 <div className="flex items-center justify-center overflow-hidden">
-                                    <Image src={data?.img} width='400' height="100" alt="img" />
+                                    <img src={data?.img} width='400' height="100" alt="img" />
                                 </div>
                                 <div className="grid grid-cols-4 gap-2 max-w-sm items-center">
                                     <div>
-                                        <Image src={data?.img} className="w-20" width='100' height="100" alt="img" />
+                                        <img src={data?.img} className="w-20" width='100' height="100" alt="img" />
                                     </div>
                                     <div>
-                                        <Image src={data?.img} className="w-20" width='100' height="100" alt="img" />
+                                        <img src={data?.img} className="w-20" width='100' height="100" alt="img" />
                                     </div>
                                 </div>
                             </div>

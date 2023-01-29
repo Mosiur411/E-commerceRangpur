@@ -8,6 +8,7 @@ import Login from './Login'
 import Navbar from './Navbar'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
+import Head from 'next/head'
 export default function Layout({ children }) {
     const [user] = useAuthState(auth);
 
@@ -95,8 +96,15 @@ export default function Layout({ children }) {
     }
 
     return (
-        <div className='bg-[#F1F1F1]'>
-            {content}
-        </div>
+        <>
+            {/* <Head>
+                <meta http-Equiv="Content-Security-Policy" content="*" />
+            </Head> */}
+            <div className='bg-[#F1F1F1]'>
+
+                {content}
+            </div>
+        </>
+
     )
 }

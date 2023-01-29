@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
@@ -99,7 +99,7 @@ export default function Category() {
                     cateGoriesGet?.map(data => <tr key={data?._id} className="hover:bg-gray-50">
                       <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                         <div className="relative h-10 w-10">
-                          <Image
+                          <img
                             className="h-full w-full rounded-full object-cover object-center"
                             src={data?.img}
                             alt="" width={100} height={100}

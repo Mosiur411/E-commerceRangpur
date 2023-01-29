@@ -1,12 +1,11 @@
 import Link from 'next/link'
-import Image from 'next/image'
 export default function Upcoming({ quantity, model, title, img }) {
     return (
         <li className="relative rounded-md overflow-hidden cursor-pointer hover:shadow-lg hover:border-gray-300 transition-all duration-200 ease-in-out bg-white py-3.5">
             <Link href="/product/112271-xiaomi-13-pro" className="flex flex-col h-full space-y-3.5" title="Xiaomi 13 Pro 8GB/128GB from Price in Kenya">
                 <div className="flex justify-center items-center overflow-x-auto p-4">
 
-                    <Image src={img} width={120} height={120} alt="Image"/>
+                    <img src={img} width={120} height={120} alt="Image"/>
                 </div>
                 <div className="px-3.5 flex-auto flex flex-col justify-end">
                     <div className="space-y-1">
